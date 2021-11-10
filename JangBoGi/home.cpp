@@ -1,4 +1,4 @@
-﻿#include "home.h"
+#include "home.h"
 
 #define UP 0
 #define DOWN 1
@@ -75,10 +75,10 @@ int keyControl()
 	int key = _getch();
 	if (key == 32)
 		return SUBMIT;
-	
+
 	if (key == 224)
 	{
-		key = _getch();	
+		key = _getch();
 		if (key == 72)
 			return UP;
 		else if (key == 75)

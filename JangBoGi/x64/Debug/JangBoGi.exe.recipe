@@ -2,7 +2,11 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
+<<<<<<< HEAD
       <FullPath>C:\Users\csw\Desktop\Grocery_JangBoGi-temporary\Grocery_JangBoGi-temporary\x64\Debug\JangBoGi.exe</FullPath>
+=======
+      <FullPath>C:\Users\csw\Desktop\JangBoGi\x64\Debug\JangBoGi.exe</FullPath>
+>>>>>>> 13a8b0c8605d27c65e130578f8430de7cacbc786
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles />

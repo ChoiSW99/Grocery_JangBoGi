@@ -455,6 +455,6 @@ void init(vector<Food>& food, string s) { //s에 맞는 식재료 목록으로 초기화함 ex
 
 void deleteData(vector<Food>& food, int index)
 {
-	food.erase(food.begin()+index);
+	food.erase(food.begin() + index);
 	writeInFile(food);
 }

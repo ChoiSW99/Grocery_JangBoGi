@@ -38,7 +38,7 @@ void add()
 			cout << "이미 존재하는 식재료 입니다.\n";
 			cout << "스페이스바를 누르면 메인 화면으로 돌아갑니다";
 			key = keyControl();
-			if(key==4)
+			if (key == 4)
 				return;
 		}
 
@@ -142,7 +142,7 @@ void add()
 bool isexist_meat(string s)
 {
 	FILE* readFile = fopen("meat.txt", "r"); //r 은 읽기모드
-	if (readFile != NULL) 
+	if (readFile != NULL)
 	{
 		char buf[2048];
 		while (!feof(readFile))
@@ -159,7 +159,7 @@ bool isexist_meat(string s)
 			}
 		}
 	}
-		return false;
+	return false;
 }
 
 bool isexist_fish(string s)
