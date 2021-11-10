@@ -27,6 +27,9 @@
     <ClCompile Include="food.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="add.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="menu.h">
@@ -36,6 +39,9 @@
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="food.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="add.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
