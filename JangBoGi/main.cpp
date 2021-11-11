@@ -36,7 +36,7 @@ int main()
 			ref->setPosition("fridge");
 			while (1) {
 				ref->show_inventory(refrigeration, freeze, room);
-				ref->getKey();
+				ref->getKey(meat, fish, veget, sauce, drink, other);
 				Sleep(500);
 				system("cls");
 			}
@@ -46,15 +46,19 @@ int main()
 			ref->setPosition("meat");
 			while (1) {
 				ref->show_ingredient(meat, fish, veget, sauce, drink, other);
-				ref->getKey();
+				ref->getKey(meat, fish, veget, sauce, drink, other);
 				Sleep(500);
 				system("cls");
 			}
 		}
 		else if (menucode == 2)
 		{
-			add();
-			system("cls");
+			while (1)
+			{
+				add();
+				system("cls");
+			}
+			
 		}
 		else if (menucode == 3)
 		{

@@ -161,11 +161,13 @@ void addData(vector<Food>& food) { //vector<Food>& food 에 추가할 때
 		}
 	}
 }
+
 void addIn(vector<Food>& food, string name, string r1, string r2, string r3) // 하나의 식재료 추가
 {
 	food.push_back(Food(name, r1, r2, r3)); //식재료 추가	
 	writeInFile(food);
 }
+
 void addIn(vector<Food>& food, string name) // 하나의 식재료 추가
 {
 	food.push_back(Food(name)); //식재료 추가	
