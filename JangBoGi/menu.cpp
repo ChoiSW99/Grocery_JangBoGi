@@ -119,10 +119,11 @@ void refrigerator::getKey() { //키 입력 받기 (방향키 4개) 엔터는 주석처리
 	}
 }
 
-void refrigerator::show_inventory(vector<Food> fridge, vector<Food> freezer, vector<Food> room) //냉장, 냉동, 실온 리스트를 인자로 받고 출력
+void refrigerator::show_inventory(vector<Food> refrigeration, vector<Food> freeze, vector<Food> room) //냉장, 냉동, 실온 리스트를 인자로 받고 출력
 {
+	cout << "+==============================================================+\n";
 	cout << "|";
-	if (position == "fridge" && cursor == 0) {
+	if (position == "fridge") {
 		textcolor(WHITE, RED);
 		cout << left << setw(20) << "       냉장고";
 		textcolor(WHITE, BLACK);
@@ -132,7 +133,7 @@ void refrigerator::show_inventory(vector<Food> fridge, vector<Food> freezer, vec
 	}
 
 	cout << "|";
-	if (position == "freezer" && cursor == 0) {
+	if (position == "freezer") {
 		textcolor(WHITE, RED);
 		cout << left << setw(20) << "       냉동실";
 		textcolor(WHITE, BLACK);
@@ -142,7 +143,7 @@ void refrigerator::show_inventory(vector<Food> fridge, vector<Food> freezer, vec
 	}
 
 	cout << "|";
-	if (position == "room" && cursor == 0) {
+	if (position == "room") {
 		textcolor(WHITE, RED);
 		cout << left << setw(20) << "       실온";
 		textcolor(WHITE, BLACK);
@@ -153,57 +154,56 @@ void refrigerator::show_inventory(vector<Food> fridge, vector<Food> freezer, vec
 	cout << "|";
 	cout << endl;
 
-	cout << "+==============================================================+\n";
-	for (int i = 0; i < 20; i++) {
+	cout << "|==============================================================|\n";
+	for (int i = 1; i <= 20; i++) {
 		if (position == "fridge" && cursor == i) {
-
-			if (fridge.size() <= i) {
+			if (refrigeration.size() <= i) {
 				cout << "|" << left << setw(20) << "";
 			}
 			else {
 				textcolor(WHITE, RED);
-				cout << "|" << left << setw(20) << fridge[i].getName();
+				cout << "|" << left << setw(20) << refrigeration[i].getName();  //이 부분에 출력할 값을 넣어줘야함.
 				textcolor(WHITE, BLACK);
 			}
 		}
 		else {
-			if (fridge.size() <= i) {
+			if (refrigeration.size() <= i) {
 				cout << "|" << left << setw(20) << "";
 			}
 			else {
-				cout << "|" << left << setw(20) << fridge[i].getName();
+				cout << "|" << left << setw(20) << refrigeration[i].getName();
 			}
 		}
 
 		if (position == "freezer" && cursor == i) {
-
-			if (freezer.size() <= i) {
+			if (freeze.size() <= i) {
 				cout << "|" << left << setw(20) << "";
 			}
 			else {
 				textcolor(WHITE, RED);
-				cout << "|" << left << setw(20) << freezer[i].getName();
+				cout << "|" << left << setw(20) << freeze[i].getName();
 				textcolor(WHITE, BLACK);
 			}
 		}
 		else {
-			if (freezer.size() <= i) {
+			if (freeze.size() <= i) {
 				cout << "|" << left << setw(20) << "";
 			}
 			else {
-				cout << "|" << left << setw(20) << freezer[i].getName();
+				cout << "|" << left << setw(20) << freeze[i].getName();
 			}
 		}
 
 		if (position == "room" && cursor == i) {
 			if (room.size() <= i) {
-				cout << "|" << left << setw(20) << "" << "|" << endl;
+				cout << "|" << left << setw(20) << "";
 			}
 			else {
 				textcolor(WHITE, RED);
-				cout << "|" << left << setw(20) << room[i].getName() << "|" << endl;
+				cout << "|" << left << setw(20) << room[i].getName();
 				textcolor(WHITE, BLACK);
 			}
+			cout << "|" << endl;
 		}
 		else {
 			if (room.size() <= i) {
@@ -215,7 +215,6 @@ void refrigerator::show_inventory(vector<Food> fridge, vector<Food> freezer, vec
 		}
 	}
 	cout << "+==============================================================+\n";
-
 }
 
 void refrigerator::show_ingredient(vector<Food> meat, vector<Food> fish, vector<Food> veget, vector<Food> sauce, vector<Food> drink, vector<Food> other) {

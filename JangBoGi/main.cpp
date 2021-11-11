@@ -19,9 +19,12 @@ int main()
 	vector<Food> other;
 	init(other, "±‚≈∏");
 
-	vector<Food> fridge; //≥√¿Â
-	vector<Food> freezer; //≥√µø
-	vector<Food> room;//ªÛø¬
+	vector<Food> refrigeration;
+	init(refrigeration, "≥√¿Â");
+	vector<Food> freeze;
+	init(freeze, "≥√µø");
+	vector<Food> room;
+	init(room, "ªÛø¬");
 
 	while (1)
 	{
@@ -32,7 +35,7 @@ int main()
 		{
 			ref->setPosition("fridge");
 			while (1) {
-				ref->show_inventory(fridge, freezer, room);
+				ref->show_inventory(refrigeration, freeze, room);
 				ref->getKey();
 				Sleep(500);
 				system("cls");
