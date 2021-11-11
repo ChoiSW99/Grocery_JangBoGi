@@ -1,7 +1,7 @@
 #include <string>
 using namespace std;
 
-void add();
+bool add();
 bool isexist_fish(string s);
 bool isexist_meat(string s);
 bool isexist_veget(string s);

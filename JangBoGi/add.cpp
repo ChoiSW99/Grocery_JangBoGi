@@ -2,7 +2,7 @@
 #include "food.h"
 #include "home.h"
 
-void add()
+bool add()
 {
 	system("cls");
 	int key;
@@ -11,6 +11,9 @@ void add()
 	int i;
 	cout << "추가할 재료와 번호를 입력하세요 ( 1:고기 2:생선 3:채소 4:음료 5:소스 6:그 외) ";
 	cin >> a >> i;
+	if (a == "x" || a == "X") { //수정해야됨.
+		return false;
+	}
 	if (i == 1)
 	{
 		if (!(isexist_meat(a)))
@@ -33,13 +36,13 @@ void add()
 			fclose(writeFile);
 			cout << "성공적으로 입력됐습니다.";
 			Sleep(1000);
-			return;
+			return true;
 		}
 		else
 		{
 			cout << "이미 존재하는 식재료 입니다.\n";
 			Sleep(1000);
-			return;
+			return true;
 		}
 
 	}
@@ -65,13 +68,13 @@ void add()
 			fclose(writeFile);
 			cout << "성공적으로 입력됐습니다.";
 			Sleep(1000);
-			return;
+			return true;
 		}
 		else
 		{
 			cout << "이미 존재하는 식재료 입니다.\n";
 			Sleep(1000);
-			return;
+			return true;
 		}
 	}
 	else if (i == 3)
@@ -84,13 +87,13 @@ void add()
 			fclose(writeFile);
 			cout << "성공적으로 입력됐습니다.";
 			Sleep(1000);
-			return;
+			return true;
 		}
 		else
 		{
 			cout << "이미 존재하는 식재료 입니다.\n";
 			Sleep(1000);
-			return;
+			return true;
 		}
 	}
 	else if (i == 4)
@@ -103,13 +106,13 @@ void add()
 			fclose(writeFile);
 			cout << "성공적으로 입력됐습니다.";
 			Sleep(1000);
-			return;
+			return true;
 		}
 		else
 		{
 			cout << "이미 존재하는 식재료 입니다.\n";
 			Sleep(1000);
-			return;
+			return true;
 		}
 	}
 	else if (i == 5)
@@ -122,13 +125,13 @@ void add()
 			fclose(writeFile);
 			cout << "성공적으로 입력됐습니다.";
 			Sleep(1000);
-			return;
+			return true;
 		}
 		else
 		{
 			cout << "이미 존재하는 식재료 입니다.\n";
 			Sleep(1000);
-			return;
+			return true;
 		}
 	}
 	else if (i == 5)
@@ -141,19 +144,19 @@ void add()
 			fclose(writeFile);
 			cout << "성공적으로 입력됐습니다.";
 			Sleep(1000);
-			return;
+			return true;
 		}
 		else
 		{
 			cout << "이미 존재하는 식재료 입니다.\n";
 			Sleep(1000);
-			return;
+			return true;
 		}
 	}
 	else
 	{
 		cout << "잘못된 종류입니다\n";
-		return;
+		return true;
 	}
 }
 
@@ -317,6 +320,7 @@ bool isexist_freeze(string s)
 	}
 	return false;
 }
+
 bool isexist_room(string s)
 {
 	FILE* readFile = fopen("room.txt", "r"); //r 은 읽기모드

@@ -41,80 +41,84 @@ void refrigerator::textcolor(int foreground, int background) //글자에 색과 배경�
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), color);
 }
 
-void refrigerator::getKey(vector<Food> meat, vector<Food> fish, vector<Food> veget, vector<Food> sauce, vector<Food> drink, vector<Food> other) { //키 입력 받기 (방향키 4개) 엔터는 주석처리
+//키 입력 받기 (방향키 4개) 엔터는 주석처리
+bool refrigerator::getKey(vector<Food> meat, vector<Food> fish, vector<Food> veget, vector<Food> sauce, vector<Food> drink, vector<Food> other, vector<Food> refrigeration, vector<Food> freeze, vector<Food> room) {
 	char c;
 	int i;
 	if (_kbhit()) {
 		c = _getch();
+		if (c == 88 || c == 120) {
+			return false;
+		}
 		if (c == 13) {
 			if (position == "meat")
 			{
 					cout << "재료의 상태를 입력하세요: (1.냉장 2.냉동 3.상온) ";
-						cin >> i;
-						if (i == 1)
+					cin >> i;
+					if (i == 1)
+					{
+						if (!isexist_refri(meat[cursor].getName()))
 						{
-							if (!isexist_refri(meat[cursor].getName()))
-							{
-								FILE* writeFile = fopen("refrigeration.txt", "a");
-								fprintf(writeFile, "\n");
-								fprintf(writeFile, meat[cursor].getName().c_str());
-								fprintf(writeFile, " ");
-								fprintf(writeFile, meat[cursor].getRecipe().c_str());
-								fclose(writeFile);
-								return;
-							}
-							else
-							{
-								cout << "이미 존재하는 식재료 입니다.\n";
-								Sleep(1);
-								return;
-							}
-
-						}
-						else if (i == 2)
-						{
-							if (!isexist_freeze(meat[cursor].getName()))
-							{
-								FILE* writeFile = fopen("freeze.txt", "a");
-								fprintf(writeFile, "\n");
-								fprintf(writeFile, meat[cursor].getName().c_str());
-								fprintf(writeFile, " ");
-								fprintf(writeFile, meat[cursor].getRecipe().c_str());
-								fclose(writeFile);
-								return;
-							}
-							else
-							{
-								cout << "이미 존재하는 식재료 입니다.\n";
-								Sleep(1);
-								return;
-							}
-						}
-						else if (i == 3)
-						{
-							if (!isexist_room(meat[cursor].getName()))
-							{
-								FILE* writeFile = fopen("room.txt", "a");
-								fprintf(writeFile, "\n");
-								fprintf(writeFile, meat[cursor].getName().c_str());
-								fprintf(writeFile, " ");
-								fprintf(writeFile, meat[cursor].getRecipe().c_str());
-								fclose(writeFile);
-								return;
-							}
-							else
-							{
-								cout << "이미 존재하는 식재료 입니다.\n";
-								Sleep(1);
-								return;
-							}
+							FILE* writeFile = fopen("refrigeration.txt", "a");
+							fprintf(writeFile, "\n");
+							fprintf(writeFile, meat[cursor].getName().c_str());
+							fprintf(writeFile, " ");
+							fprintf(writeFile, meat[cursor].getRecipe().c_str());
+							fclose(writeFile);
+							return true;
 						}
 						else
 						{
-							cout << "잘못된 상태입니다.";
-							Sleep(1);
-							return;
+							cout << "이미 존재하는 식재료 입니다.\n";
+							Sleep(100);
+							return true;
 						}
+
+					}
+					else if (i == 2)
+					{
+						if (!isexist_freeze(meat[cursor].getName()))
+						{
+							FILE* writeFile = fopen("freeze.txt", "a");
+							fprintf(writeFile, "\n");
+							fprintf(writeFile, meat[cursor].getName().c_str());
+							fprintf(writeFile, " ");
+							fprintf(writeFile, meat[cursor].getRecipe().c_str());
+							fclose(writeFile);
+							return true;
+						}
+						else
+						{
+							cout << "이미 존재하는 식재료 입니다.\n";
+							Sleep(100);
+							return true;
+						}
+					}
+					else if (i == 3)
+					{
+						if (!isexist_room(meat[cursor].getName()))
+						{
+							FILE* writeFile = fopen("room.txt", "a");
+							fprintf(writeFile, "\n");
+							fprintf(writeFile, meat[cursor].getName().c_str());
+							fprintf(writeFile, " ");
+							fprintf(writeFile, meat[cursor].getRecipe().c_str());
+							fclose(writeFile);
+							return true;
+						}
+						else
+						{
+							cout << "이미 존재하는 식재료 입니다.\n";
+							Sleep(100);
+							return true;
+						}
+					}
+					else
+					{
+						cout << "잘못된 상태입니다.";
+						Sleep(100);
+						return true;
+					}
 
 			}
 			else if (position == "fish")
@@ -131,13 +135,13 @@ void refrigerator::getKey(vector<Food> meat, vector<Food> fish, vector<Food> veg
 							fprintf(writeFile, " ");
 							fprintf(writeFile, fish[cursor].getRecipe().c_str());
 							fclose(writeFile);
-							return;
+							return true;
 						}
 						else
 						{
 							cout << "이미 존재하는 식재료 입니다.\n";
-							Sleep(1);
-							return;
+							Sleep(100);
+							return true;
 						}
 
 					}
@@ -151,13 +155,13 @@ void refrigerator::getKey(vector<Food> meat, vector<Food> fish, vector<Food> veg
 							fprintf(writeFile, " ");
 							fprintf(writeFile, fish[cursor].getRecipe().c_str());
 							fclose(writeFile);
-							return;
+							return true;
 						}
 						else
 						{
 							cout << "이미 존재하는 식재료 입니다.\n";
-							Sleep(1);
-							return;
+							Sleep(100);
+							return true;
 						}
 					}
 					else if (i == 3)
@@ -170,20 +174,20 @@ void refrigerator::getKey(vector<Food> meat, vector<Food> fish, vector<Food> veg
 							fprintf(writeFile, " ");
 							fprintf(writeFile, fish[cursor].getRecipe().c_str());
 							fclose(writeFile);
-							return;
+							return true;
 						}
 						else
 						{
 							cout << "이미 존재하는 식재료 입니다.\n";
-							Sleep(1);
-							return;
+							Sleep(100);
+							return true;
 						}
 					}
 					else
 					{
 						cout << "잘못된 상태입니다.";
-						Sleep(1);
-						return;
+						Sleep(100);
+						return true;
 					}
 
 			}
@@ -199,13 +203,13 @@ void refrigerator::getKey(vector<Food> meat, vector<Food> fish, vector<Food> veg
 						fprintf(writeFile, "\n");
 						fprintf(writeFile, veget[cursor].getName().c_str());
 						fclose(writeFile);
-						return;
+						return true;
 					}
 					else
 					{
 						cout << "이미 존재하는 식재료 입니다.\n";
-						Sleep(1);
-						return;
+						Sleep(100);
+						return true;
 					}
 
 				}
@@ -217,13 +221,13 @@ void refrigerator::getKey(vector<Food> meat, vector<Food> fish, vector<Food> veg
 						fprintf(writeFile, "\n");
 						fprintf(writeFile, veget[cursor].getName().c_str());
 						fclose(writeFile);
-						return;
+						return true;
 					}
 					else
 					{
 						cout << "이미 존재하는 식재료 입니다.\n";
-						Sleep(1);
-						return;
+						Sleep(100);
+						return true;
 					}
 				}
 				else if (i == 3)
@@ -234,20 +238,20 @@ void refrigerator::getKey(vector<Food> meat, vector<Food> fish, vector<Food> veg
 						fprintf(writeFile, "\n");
 						fprintf(writeFile, veget[cursor].getName().c_str());
 						fclose(writeFile);
-						return;
+						return true;
 					}
 					else
 					{
 						cout << "이미 존재하는 식재료 입니다.\n";
-						Sleep(1);
-						return;
+						Sleep(100);
+						return true;
 					}
 				}
 				else
 				{
 					cout << "잘못된 상태입니다.";
-					Sleep(1);
-					return;
+					Sleep(100);
+					return true;
 				}
 			}
 			else if (position == "drink")
@@ -262,13 +266,13 @@ void refrigerator::getKey(vector<Food> meat, vector<Food> fish, vector<Food> veg
 						fprintf(writeFile, "\n");
 						fprintf(writeFile, drink[cursor].getName().c_str());
 						fclose(writeFile);
-						return;
+						return true;
 					}
 					else
 					{
 						cout << "이미 존재하는 식재료 입니다.\n";
-						Sleep(1);
-						return;
+						Sleep(100);
+						return true;
 					}
 
 				}
@@ -280,13 +284,13 @@ void refrigerator::getKey(vector<Food> meat, vector<Food> fish, vector<Food> veg
 						fprintf(writeFile, "\n");
 						fprintf(writeFile, drink[cursor].getName().c_str());
 						fclose(writeFile);
-						return;
+						return true;
 					}
 					else
 					{
 						cout << "이미 존재하는 식재료 입니다.\n";
-						Sleep(1);
-						return;
+						Sleep(100);
+						return true;
 					}
 				}
 				else if (i == 3)
@@ -297,20 +301,20 @@ void refrigerator::getKey(vector<Food> meat, vector<Food> fish, vector<Food> veg
 						fprintf(writeFile, "\n");
 						fprintf(writeFile, drink[cursor].getName().c_str());
 						fclose(writeFile);
-						return;
+						return true;
 					}
 					else
 					{
 						cout << "이미 존재하는 식재료 입니다.\n";
-						Sleep(1);
-						return;
+						Sleep(100);
+						return true;
 					}
 				}
 				else
 				{
 					cout << "잘못된 상태입니다.";
-					return;
-					Sleep(1);
+					Sleep(100);
+					return true;
 				}
 			}
 			else if (position == "sauce")
@@ -325,13 +329,13 @@ void refrigerator::getKey(vector<Food> meat, vector<Food> fish, vector<Food> veg
 						fprintf(writeFile, "\n");
 						fprintf(writeFile, sauce[cursor].getName().c_str());
 						fclose(writeFile);
-						return;
+						return true;
 					}
 					else
 					{
 						cout << "이미 존재하는 식재료 입니다.\n";
-						Sleep(1);
-						return;
+						Sleep(100);
+						return true;
 					}
 				}
 				else if (i == 2)
@@ -342,13 +346,13 @@ void refrigerator::getKey(vector<Food> meat, vector<Food> fish, vector<Food> veg
 						fprintf(writeFile, "\n");
 						fprintf(writeFile, sauce[cursor].getName().c_str());
 						fclose(writeFile);
-						return;
+						return true;
 					}
 					else
 					{
 						cout << "이미 존재하는 식재료 입니다.\n";
-						Sleep(1);
-						return;
+						Sleep(100);
+						return true;
 					}
 				}
 				else if (i == 3)
@@ -359,20 +363,20 @@ void refrigerator::getKey(vector<Food> meat, vector<Food> fish, vector<Food> veg
 						fprintf(writeFile, "\n");
 						fprintf(writeFile, sauce[cursor].getName().c_str());
 						fclose(writeFile);
-						return;
+						return true;
 					}
 					else
 					{
 						cout << "이미 존재하는 식재료 입니다.\n";
-						Sleep(1);
-						return;
+						Sleep(100);
+						return true;
 					}
 				}
 				else
 				{
 					cout << "잘못된 상태입니다.";
-					return;
-					Sleep(1);
+					Sleep(100);
+					return true;
 				}
 			}
 			else if (position == "other")
@@ -387,13 +391,13 @@ void refrigerator::getKey(vector<Food> meat, vector<Food> fish, vector<Food> veg
 						fprintf(writeFile, "\n");
 						fprintf(writeFile, other[cursor].getName().c_str());
 						fclose(writeFile);
-						return;
+						return true;
 					}
 					else
 					{
 						cout << "이미 존재하는 식재료 입니다.\n";
-						Sleep(1);
-						return;
+						Sleep(100);
+						return true;
 					}
 	
 				}
@@ -405,13 +409,13 @@ void refrigerator::getKey(vector<Food> meat, vector<Food> fish, vector<Food> veg
 						fprintf(writeFile, "\n");
 						fprintf(writeFile, other[cursor].getName().c_str());
 						fclose(writeFile);
-						return;
+						return true;
 					}
 					else
 					{
 						cout << "이미 존재하는 식재료 입니다.\n";
-						Sleep(1);
-						return;
+						Sleep(100);
+						return true;
 					}
 				}
 				else if (i == 3)
@@ -422,20 +426,20 @@ void refrigerator::getKey(vector<Food> meat, vector<Food> fish, vector<Food> veg
 						fprintf(writeFile, "\n");
 						fprintf(writeFile, other[cursor].getName().c_str());
 						fclose(writeFile);
-						return;
+						return true;
 					}
 					else
 					{
 						cout << "이미 존재하는 식재료 입니다.\n";
-						Sleep(1);
-						return;
+						Sleep(100);
+						return true;
 					}
 				}
 				else
 				{
 					cout << "잘못된 상태입니다.";
-					return;
-					Sleep(1);
+					Sleep(100);
+					return true;
 				}
 			}
 		}
@@ -465,6 +469,7 @@ void refrigerator::getKey(vector<Food> meat, vector<Food> fish, vector<Food> veg
 				else if (position == "other") {
 					position = "drink";
 				}
+				return true;
 				break;
 
 			case RIGHT:
@@ -489,12 +494,14 @@ void refrigerator::getKey(vector<Food> meat, vector<Food> fish, vector<Food> veg
 				else if (position == "drink") {
 					position = "other";
 				}
+				return true;
 				break;
 
 			case UP:
 				if (cursor > 0) {
 					cursor -= 1;
 				}
+				return true;
 				break;
 			case DOWN:
 				if (cursor < 20) {
@@ -505,10 +512,34 @@ void refrigerator::getKey(vector<Food> meat, vector<Food> fish, vector<Food> veg
 						cursor += 1;
 					}
 				}
-				break;
 			}
 		}
+		if (c == 'd' || c == 'D') {
+			if(position == "meat")
+				deleteData(meat, cursor);
+			else if (position == "fish")
+				deleteData(fish, cursor);
+			else if (position == "veget")
+				deleteData(veget, cursor);
+			else if (position == "sauce")
+				deleteData(sauce, cursor);
+			else if (position == "drink")
+				deleteData(drink, cursor);
+			else if (position == "other")
+				deleteData(other, cursor);
+
+			else if (position == "fridge")
+				deleteData(refrigeration, cursor);
+			else if (position == "freezer")
+				deleteData(freeze, cursor);
+			else if (position == "room") 
+				deleteData(room, cursor);
+			else
+				return true;
+			return true;
+		}
 	}
+	return true;
 }
 
 void refrigerator::show_inventory(vector<Food> refrigeration, vector<Food> freeze, vector<Food> room) //냉장, 냉동, 실온 리스트를 인자로 받고 출력
@@ -675,7 +706,7 @@ void refrigerator::show_ingredient(vector<Food> meat, vector<Food> fish, vector<
 	cout << endl;
 
 	cout << "|=============================================================================================================================|\n";
-	for (int i = 0; i < 20; i++) {
+	for (int i = 1; i <= 20; i++) {
 		if (position == "meat" && cursor == i) {
 
 			if (meat.size() <= i) {
@@ -794,7 +825,7 @@ void refrigerator::show_ingredient(vector<Food> meat, vector<Food> fish, vector<
 	cout << "+=============================================================================================================================+\n";
 }
 
-void refrigerator::deleteData(vector<Food>& food, int index)
+void refrigerator::deleteData(vector<Food>& food, int index) //index는 cursor임.
 {
 	food.erase(food.begin() + index);
 	writeInFile(food);

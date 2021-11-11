@@ -176,7 +176,7 @@ void addIn(vector<Food>& food, string name) // 하나의 식재료 추가
 
 //파일에 미리 입력된 데이터 외에 추가할 때 사용됨.
 void writeInFile(vector<Food>& food) { // txt파일들에 식재료들 write
-	if (food[0].getName() == "소등심") {
+	if (food[0].getName() == "육류") {
 		FILE* writeFile = fopen("meat.txt", "w");
 		int i = 0, j = 1;
 		while (i < food.size()) {
@@ -191,7 +191,7 @@ void writeInFile(vector<Food>& food) { // txt파일들에 식재료들 write
 		}
 		fclose(writeFile);
 	}
-	else if (food[0].getName() == "생태") {
+	else if (food[0].getName() == "어류") {
 		FILE* writeFile = fopen("fish.txt", "w");
 		int i = 0, j = 1;
 		while (i < food.size()) {
@@ -206,7 +206,7 @@ void writeInFile(vector<Food>& food) { // txt파일들에 식재료들 write
 		}
 		fclose(writeFile);
 	}
-	else if (food[0].getName() == "가지") { //veget[0].getName()
+	else if (food[0].getName() == "채소") { //veget[0].getName()
 		FILE* writeFile = fopen("veget.txt", "w");
 		int i = 0, j = 1;
 		while (i < food.size()) {  //첫 데이터 입력 -> 개행 -> 데이터입력 -> ... -> 개행 -> 데이터입력    ,,,,,, 개행을 한번 덜 해줘야돼서 j=1로 둠.
@@ -219,7 +219,7 @@ void writeInFile(vector<Food>& food) { // txt파일들에 식재료들 write
 		}
 		fclose(writeFile);
 	}
-	else if (food[0].getName() == "고수") {
+	else if (food[0].getName() == "소스") {
 		FILE* writeFile = fopen("sauce.txt", "w");
 		int i = 0, j = 1;
 		while (i < food.size()) {
@@ -232,7 +232,7 @@ void writeInFile(vector<Food>& food) { // txt파일들에 식재료들 write
 		}
 		fclose(writeFile);
 	}
-	else if (food[0].getName() == "우유") {
+	else if (food[0].getName() == "음료") {
 		FILE* writeFile = fopen("drink.txt", "w");
 		int i = 0, j = 1;
 		while (i < food.size()) {
@@ -245,7 +245,7 @@ void writeInFile(vector<Food>& food) { // txt파일들에 식재료들 write
 		}
 		fclose(writeFile);
 	}
-	else if (food[0].getName() == "박력분") {
+	else if (food[0].getName() == "그외") {
 		FILE* writeFile = fopen("other.txt", "w");
 		int i = 0;
 		int j = 1;
@@ -390,12 +390,12 @@ void readInFile(vector<Food>& food) { // 파일에 저장된 해당 식재료의 목록 콘솔창
 }
 
 void init(vector<Food>& food, string s) { //s에 맞는 식재료 목록으로 초기화함 ex) init(food, "육류") ---> meat.txt에 작성된 식재료들로 food 벡터가 초기화됨.
-
+	food.clear();
 	if (s == "육류") {
 		FILE* readFile = NULL;
 		readFile = fopen("meat.txt", "r");
 		if (readFile != NULL) {
-			char buf[2048];
+			char buf[1024];
 			while (!feof(readFile)) {
 				fgets(buf, sizeof(buf), readFile);
 
@@ -425,7 +425,7 @@ void init(vector<Food>& food, string s) { //s에 맞는 식재료 목록으로 초기화함 ex
 		FILE* readFile = NULL;
 		readFile = fopen("fish.txt", "r");
 		if (readFile != NULL) {
-			char buf[2048];
+			char buf[1024];
 			while (!feof(readFile)) {
 				fgets(buf, sizeof(buf), readFile);
 
@@ -451,7 +451,7 @@ void init(vector<Food>& food, string s) { //s에 맞는 식재료 목록으로 초기화함 ex
 		FILE* readFile = NULL;
 		readFile = fopen("veget.txt", "r");
 		if (readFile != NULL) {
-			char buf[2048];
+			char buf[1024];
 			while (!feof(readFile)) {
 				fgets(buf, sizeof(buf), readFile);
 
@@ -468,7 +468,7 @@ void init(vector<Food>& food, string s) { //s에 맞는 식재료 목록으로 초기화함 ex
 		FILE* readFile = NULL;
 		readFile = fopen("sauce.txt", "r");
 		if (readFile != NULL) {
-			char buf[2048];
+			char buf[1024];
 			while (!feof(readFile)) {
 				fgets(buf, sizeof(buf), readFile);
 
@@ -485,7 +485,7 @@ void init(vector<Food>& food, string s) { //s에 맞는 식재료 목록으로 초기화함 ex
 		FILE* readFile = NULL;
 		readFile = fopen("drink.txt", "r");
 		if (readFile != NULL) {
-			char buf[2048];
+			char buf[1024];
 			while (!feof(readFile)) {
 				fgets(buf, sizeof(buf), readFile);
 
@@ -502,7 +502,7 @@ void init(vector<Food>& food, string s) { //s에 맞는 식재료 목록으로 초기화함 ex
 		FILE* readFile = NULL;
 		readFile = fopen("other.txt", "r");
 		if (readFile != NULL) {
-			char buf[2048];
+			char buf[1024];
 			while (!feof(readFile)) {
 				fgets(buf, sizeof(buf), readFile);
 
@@ -522,7 +522,7 @@ void init(vector<Food>& food, string s) { //s에 맞는 식재료 목록으로 초기화함 ex
 		readFile = fopen("refrigeration.txt", "r");
 		if (readFile != NULL) {
 
-			char buf[2048];
+			char buf[1024];
 
 			char name[32];
 			fgets(buf, sizeof(buf), readFile);
@@ -580,7 +580,7 @@ void init(vector<Food>& food, string s) { //s에 맞는 식재료 목록으로 초기화함 ex
 		readFile = fopen("freeze.txt", "r");
 		if (readFile != NULL) {
 
-			char buf[2048];
+			char buf[1024];
 
 			char name[32];
 			fgets(buf, sizeof(buf), readFile);
@@ -638,7 +638,7 @@ void init(vector<Food>& food, string s) { //s에 맞는 식재료 목록으로 초기화함 ex
 		readFile = fopen("room.txt", "r");
 		if (readFile != NULL) {
 
-			char buf[2048];
+			char buf[1024];
 
 			char name[32];
 			fgets(buf, sizeof(buf), readFile);
