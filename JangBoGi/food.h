@@ -54,13 +54,13 @@ public:
 	void showLeftDate(); //유통기한 며칠 남았는지
 	void showState(); //현재 보관상태
 	void CheckAll(); //식재료명, 유통기한, 보관상태 출력
+	void setState1(string state); // 현황에 상태 저장
 
 };
-
 void ShowAllFood(vector<Food>& food); //해당 Food목록의 전체 식재료명 출력
 void addData(vector<Food>& food);
 void addIn(vector<Food>& food, string name, string r1, string r2, string r3);
 void addIn(vector<Food>& food, string name);
 void writeInFile(vector<Food>& food);
-void readInFile(vector<Food>& food); // -->정리
+void readInFile(vector<Food>& food);
 void init(vector<Food>& food, string s);

@@ -47,7 +47,7 @@ int menudraw()
 			}
 			break;
 		case DOWN:
-			if (y < 14)
+			if (y < 15)
 			{
 				gotoxy(x - 2, y);
 				printf(" ");
@@ -73,7 +73,7 @@ void gotoxy(int x, int y)
 int keyControl()
 {
 	int key = _getch();
-	if (key == 32)
+	if (key == 13)
 		return SUBMIT;
 
 	if (key == 224)
