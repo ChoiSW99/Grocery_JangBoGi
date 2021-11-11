@@ -2,6 +2,8 @@
 #include "menu.h"
 #include "food.h"
 #include "add.h"
+#include <Windows.h>
+#include <stdlib.h>
 
 int main()
 {
@@ -28,35 +30,51 @@ int main()
 
 	while (1)
 	{
+		system(" mode  con lines=30   cols=120 ");
+		system("cls");
 		init();
 		title();
 		int menucode = menudraw();
 		if (menucode == 0)
 		{
+			system(" mode  con lines=25   cols=70 ");
 			ref->setPosition("fridge");
 			while (1) {
 				ref->show_inventory(refrigeration, freeze, room);
-				ref->getKey(meat, fish, veget, sauce, drink, other);
-				Sleep(500);
-				system("cls");
+				if (ref->getKey(meat, fish, veget, sauce, drink, other) == true) {
+					Sleep(500);
+					system("cls");
+				}
+				else {
+					break;
+				}
 			}
 		}
 		else if (menucode == 1)
 		{
+			system(" mode  con lines=30   cols=140 ");
 			ref->setPosition("meat");
 			while (1) {
 				ref->show_ingredient(meat, fish, veget, sauce, drink, other);
-				ref->getKey(meat, fish, veget, sauce, drink, other);
-				Sleep(500);
-				system("cls");
+				if (ref->getKey(meat, fish, veget, sauce, drink, other) == true) {
+					Sleep(500);
+					system("cls");
+				}
+				else {
+					break;
+				}
 			}
 		}
 		else if (menucode == 2)
 		{
 			while (1)
 			{
-				add();
-				system("cls");
+				if (add() == true) {
+					system("cls");
+				}
+				else {
+					break;
+				}
 			}
 			
 		}
