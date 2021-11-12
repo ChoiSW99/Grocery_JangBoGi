@@ -1,11 +1,11 @@
 ﻿  food.cpp
-C:\Users\csw\Desktop\Grocery_JangBoGi-temporary\Grocery_JangBoGi-temporary\JangBoGi\food.cpp(107,13): warning C4244: '=': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\csw\Desktop\Grocery_JangBoGi-temporary\Grocery_JangBoGi-temporary\JangBoGi\food.cpp(321,43): warning C4267: '초기화 중': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\csw\Desktop\Grocery_JangBoGi-temporary\Grocery_JangBoGi-temporary\JangBoGi\food.cpp(322,47): warning C4267: '초기화 중': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\csw\Desktop\Grocery_JangBoGi-temporary\Grocery_JangBoGi-temporary\JangBoGi\food.cpp(334,43): warning C4267: '초기화 중': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\csw\Desktop\Grocery_JangBoGi-temporary\Grocery_JangBoGi-temporary\JangBoGi\food.cpp(335,47): warning C4267: '초기화 중': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\csw\Desktop\Grocery_JangBoGi-temporary\Grocery_JangBoGi-temporary\JangBoGi\food.cpp(347,43): warning C4267: '초기화 중': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\csw\Desktop\Grocery_JangBoGi-temporary\Grocery_JangBoGi-temporary\JangBoGi\food.cpp(358,43): warning C4267: '초기화 중': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\csw\Desktop\Grocery_JangBoGi-temporary\Grocery_JangBoGi-temporary\JangBoGi\food.cpp(369,43): warning C4267: '초기화 중': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\csw\Desktop\Grocery_JangBoGi-temporary\Grocery_JangBoGi-temporary\JangBoGi\food.cpp(380,43): warning C4267: '초기화 중': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  JangBoGi.vcxproj -> C:\Users\csw\Desktop\Grocery_JangBoGi-temporary\Grocery_JangBoGi-temporary\x64\Debug\JangBoGi.exe
+C:\Users\wogks\Desktop\git_repository\a\Grocery_JangBoGi\JangBoGi\food.cpp(117,13): warning C4244: '=': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\wogks\Desktop\git_repository\a\Grocery_JangBoGi\JangBoGi\food.cpp(368,43): warning C4267: '초기화 중': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\wogks\Desktop\git_repository\a\Grocery_JangBoGi\JangBoGi\food.cpp(369,47): warning C4267: '초기화 중': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\wogks\Desktop\git_repository\a\Grocery_JangBoGi\JangBoGi\food.cpp(381,43): warning C4267: '초기화 중': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\wogks\Desktop\git_repository\a\Grocery_JangBoGi\JangBoGi\food.cpp(382,47): warning C4267: '초기화 중': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\wogks\Desktop\git_repository\a\Grocery_JangBoGi\JangBoGi\food.cpp(394,43): warning C4267: '초기화 중': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\wogks\Desktop\git_repository\a\Grocery_JangBoGi\JangBoGi\food.cpp(405,43): warning C4267: '초기화 중': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\wogks\Desktop\git_repository\a\Grocery_JangBoGi\JangBoGi\food.cpp(416,43): warning C4267: '초기화 중': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\wogks\Desktop\git_repository\a\Grocery_JangBoGi\JangBoGi\food.cpp(427,43): warning C4267: '초기화 중': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  JangBoGi.vcxproj -> C:\Users\wogks\Desktop\git_repository\a\Grocery_JangBoGi\x64\Debug\JangBoGi.exe

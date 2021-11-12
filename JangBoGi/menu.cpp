@@ -43,8 +43,9 @@ void refrigerator::textcolor(int foreground, int background) //글자에 색과 배경�
 
 //키 입력 받기 (방향키 4개) 엔터는 주석처리
 bool refrigerator::getKey(vector<Food> meat, vector<Food> fish, vector<Food> veget, vector<Food> sauce, vector<Food> drink, vector<Food> other, vector<Food> refrigeration, vector<Food> freeze, vector<Food> room) {
-	char c;
-	int i;
+	char c; // 키 입력
+	int i; // 재료 상태(냉장, 냉동, 상온)
+	int y = 0, m = 0, d = 0;
 	if (_kbhit()) {
 		c = _getch();
 		if (c == 88 || c == 120) {
@@ -55,6 +56,8 @@ bool refrigerator::getKey(vector<Food> meat, vector<Food> fish, vector<Food> veg
 			{
 					cout << "재료의 상태를 입력하세요: (1.냉장 2.냉동 3.상온) ";
 					cin >> i;
+					cout << "재료의 유통기한을 입력하세요(ex: 2022 03 01): ";
+					cin >> y >> m >> d;
 					if (i == 1)
 					{
 						if (!isexist_refri(meat[cursor].getName()))
@@ -63,7 +66,13 @@ bool refrigerator::getKey(vector<Food> meat, vector<Food> fish, vector<Food> veg
 							fprintf(writeFile, "\n");
 							fprintf(writeFile, meat[cursor].getName().c_str());
 							fprintf(writeFile, " ");
-							fprintf(writeFile, meat[cursor].getRecipe().c_str());
+							fprintf(writeFile, meat[cursor].getRecipe1().c_str());
+							fprintf(writeFile, " ");
+							fprintf(writeFile, to_string(y).c_str()); // 재료 1 2 3 2000
+							fprintf(writeFile, " ");// 재료 1 2 3 2000 
+							fprintf(writeFile, to_string(m).c_str()); // 재료 1 2 3 2000 2
+							fprintf(writeFile, " ");// 재료 1 2 3 2000 2 
+							fprintf(writeFile, to_string(d).c_str()); // 재료 1 2 3 2000 2 2 2
 							fclose(writeFile);
 							return true;
 						}
@@ -83,7 +92,13 @@ bool refrigerator::getKey(vector<Food> meat, vector<Food> fish, vector<Food> veg
 							fprintf(writeFile, "\n");
 							fprintf(writeFile, meat[cursor].getName().c_str());
 							fprintf(writeFile, " ");
-							fprintf(writeFile, meat[cursor].getRecipe().c_str());
+							fprintf(writeFile, meat[cursor].getRecipe1().c_str());
+							fprintf(writeFile, " ");
+							fprintf(writeFile, to_string(y).c_str()); // 재료 1 2 3 2000
+							fprintf(writeFile, " ");// 재료 1 2 3 2000 
+							fprintf(writeFile, to_string(m).c_str()); // 재료 1 2 3 2000 2
+							fprintf(writeFile, " ");// 재료 1 2 3 2000 2 
+							fprintf(writeFile, to_string(d).c_str()); // 재료 1 2 3 2000 2 2 2
 							fclose(writeFile);
 							return true;
 						}
@@ -102,7 +117,13 @@ bool refrigerator::getKey(vector<Food> meat, vector<Food> fish, vector<Food> veg
 							fprintf(writeFile, "\n");
 							fprintf(writeFile, meat[cursor].getName().c_str());
 							fprintf(writeFile, " ");
-							fprintf(writeFile, meat[cursor].getRecipe().c_str());
+							fprintf(writeFile, meat[cursor].getRecipe1().c_str());
+							fprintf(writeFile, " ");
+							fprintf(writeFile, to_string(y).c_str()); // 재료 1 2 3 2000
+							fprintf(writeFile, " ");// 재료 1 2 3 2000 
+							fprintf(writeFile, to_string(m).c_str()); // 재료 1 2 3 2000 2
+							fprintf(writeFile, " ");// 재료 1 2 3 2000 2 
+							fprintf(writeFile, to_string(d).c_str()); // 재료 1 2 3 2000 2 2 2
 							fclose(writeFile);
 							return true;
 						}
@@ -125,6 +146,8 @@ bool refrigerator::getKey(vector<Food> meat, vector<Food> fish, vector<Food> veg
 			{
 					cout << "재료의 상태를 입력하세요: (1.냉장 2.냉동 3.상온) ";
 					cin >> i;
+					cout << "재료의 유통기한을 입력하세요(ex: 2022 03 01): ";
+					cin >> y >> m >> d;
 					if (i == 1)
 					{
 						if (!isexist_refri(fish[cursor].getName()))
@@ -133,7 +156,13 @@ bool refrigerator::getKey(vector<Food> meat, vector<Food> fish, vector<Food> veg
 							fprintf(writeFile, "\n");
 							fprintf(writeFile, fish[cursor].getName().c_str());
 							fprintf(writeFile, " ");
-							fprintf(writeFile, fish[cursor].getRecipe().c_str());
+							fprintf(writeFile, fish[cursor].getRecipe1().c_str());
+							fprintf(writeFile, " ");
+							fprintf(writeFile, to_string(y).c_str()); // 재료 1 2 3 2000
+							fprintf(writeFile, " ");// 재료 1 2 3 2000 
+							fprintf(writeFile, to_string(m).c_str()); // 재료 1 2 3 2000 2
+							fprintf(writeFile, " ");// 재료 1 2 3 2000 2 
+							fprintf(writeFile, to_string(d).c_str()); // 재료 1 2 3 2000 2 2 2
 							fclose(writeFile);
 							return true;
 						}
@@ -153,7 +182,13 @@ bool refrigerator::getKey(vector<Food> meat, vector<Food> fish, vector<Food> veg
 							fprintf(writeFile, "\n");
 							fprintf(writeFile, fish[cursor].getName().c_str());
 							fprintf(writeFile, " ");
-							fprintf(writeFile, fish[cursor].getRecipe().c_str());
+							fprintf(writeFile, fish[cursor].getRecipe1().c_str());
+							fprintf(writeFile, " ");
+							fprintf(writeFile, to_string(y).c_str()); // 재료 1 2 3 2000
+							fprintf(writeFile, " ");// 재료 1 2 3 2000 
+							fprintf(writeFile, to_string(m).c_str()); // 재료 1 2 3 2000 2
+							fprintf(writeFile, " ");// 재료 1 2 3 2000 2 
+							fprintf(writeFile, to_string(d).c_str()); // 재료 1 2 3 2000 2 2 2
 							fclose(writeFile);
 							return true;
 						}
@@ -172,7 +207,13 @@ bool refrigerator::getKey(vector<Food> meat, vector<Food> fish, vector<Food> veg
 							fprintf(writeFile, "\n");
 							fprintf(writeFile, fish[cursor].getName().c_str());
 							fprintf(writeFile, " ");
-							fprintf(writeFile, fish[cursor].getRecipe().c_str());
+							fprintf(writeFile, fish[cursor].getRecipe1().c_str());
+							fprintf(writeFile, " ");
+							fprintf(writeFile, to_string(y).c_str()); // 재료 1 2 3 2000
+							fprintf(writeFile, " ");// 재료 1 2 3 2000 
+							fprintf(writeFile, to_string(m).c_str()); // 재료 1 2 3 2000 2
+							fprintf(writeFile, " ");// 재료 1 2 3 2000 2 
+							fprintf(writeFile, to_string(d).c_str()); // 재료 1 2 3 2000 2 2 2
 							fclose(writeFile);
 							return true;
 						}
@@ -195,6 +236,8 @@ bool refrigerator::getKey(vector<Food> meat, vector<Food> fish, vector<Food> veg
 			{
 				cout << "재료의 상태를 입력하세요: (1.냉장 2.냉동 3.상온) ";
 				cin >> i;
+				cout << "재료의 유통기한을 입력하세요(ex: 2022 03 01): ";
+				cin >> y >> m >> d;
 				if (i == 1)
 				{
 					if (!isexist_refri(veget[cursor].getName()))
@@ -202,6 +245,14 @@ bool refrigerator::getKey(vector<Food> meat, vector<Food> fish, vector<Food> veg
 						FILE* writeFile = fopen("refrigeration.txt", "a");
 						fprintf(writeFile, "\n");
 						fprintf(writeFile, veget[cursor].getName().c_str());
+						fprintf(writeFile, " ");
+						fprintf(writeFile, "x x x");
+						fprintf(writeFile, " ");
+						fprintf(writeFile, to_string(y).c_str()); // 재료 1 2 3 2000
+						fprintf(writeFile, " ");// 재료 1 2 3 2000 
+						fprintf(writeFile, to_string(m).c_str()); // 재료 1 2 3 2000 2
+						fprintf(writeFile, " ");// 재료 1 2 3 2000 2 
+						fprintf(writeFile, to_string(d).c_str()); // 재료 1 2 3 2000 2 2 2
 						fclose(writeFile);
 						return true;
 					}
@@ -220,6 +271,14 @@ bool refrigerator::getKey(vector<Food> meat, vector<Food> fish, vector<Food> veg
 						FILE* writeFile = fopen("freeze.txt", "a");
 						fprintf(writeFile, "\n");
 						fprintf(writeFile, veget[cursor].getName().c_str());
+						fprintf(writeFile, " ");
+						fprintf(writeFile, "x x x");
+						fprintf(writeFile, " ");
+						fprintf(writeFile, to_string(y).c_str()); // 재료 1 2 3 2000
+						fprintf(writeFile, " ");// 재료 1 2 3 2000 
+						fprintf(writeFile, to_string(m).c_str()); // 재료 1 2 3 2000 2
+						fprintf(writeFile, " ");// 재료 1 2 3 2000 2 
+						fprintf(writeFile, to_string(d).c_str()); // 재료 1 2 3 2000 2 2 2
 						fclose(writeFile);
 						return true;
 					}
@@ -237,6 +296,14 @@ bool refrigerator::getKey(vector<Food> meat, vector<Food> fish, vector<Food> veg
 						FILE* writeFile = fopen("room.txt", "a");
 						fprintf(writeFile, "\n");
 						fprintf(writeFile, veget[cursor].getName().c_str());
+						fprintf(writeFile, " ");
+						fprintf(writeFile, "x x x");
+						fprintf(writeFile, " ");
+						fprintf(writeFile, to_string(y).c_str()); // 재료 1 2 3 2000
+						fprintf(writeFile, " ");// 재료 1 2 3 2000 
+						fprintf(writeFile, to_string(m).c_str()); // 재료 1 2 3 2000 2
+						fprintf(writeFile, " ");// 재료 1 2 3 2000 2 
+						fprintf(writeFile, to_string(d).c_str()); // 재료 1 2 3 2000 2 2 2
 						fclose(writeFile);
 						return true;
 					}
@@ -258,6 +325,8 @@ bool refrigerator::getKey(vector<Food> meat, vector<Food> fish, vector<Food> veg
 			{
 				cout << "재료의 상태를 입력하세요: (1.냉장 2.냉동 3.상온) ";
 				cin >> i;
+				cout << "재료의 유통기한을 입력하세요(ex: 2022 03 01): ";
+				cin >> y >> m >> d;
 				if (i == 1)
 				{
 					if (!isexist_refri(drink[cursor].getName()))
@@ -265,6 +334,14 @@ bool refrigerator::getKey(vector<Food> meat, vector<Food> fish, vector<Food> veg
 						FILE* writeFile = fopen("refrigeration.txt", "a");
 						fprintf(writeFile, "\n");
 						fprintf(writeFile, drink[cursor].getName().c_str());
+						fprintf(writeFile, " ");
+						fprintf(writeFile, "x x x");
+						fprintf(writeFile, " ");
+						fprintf(writeFile, to_string(y).c_str()); // 재료 1 2 3 2000
+						fprintf(writeFile, " ");// 재료 1 2 3 2000 
+						fprintf(writeFile, to_string(m).c_str()); // 재료 1 2 3 2000 2
+						fprintf(writeFile, " ");// 재료 1 2 3 2000 2 
+						fprintf(writeFile, to_string(d).c_str()); // 재료 1 2 3 2000 2 2 2
 						fclose(writeFile);
 						return true;
 					}
@@ -283,6 +360,14 @@ bool refrigerator::getKey(vector<Food> meat, vector<Food> fish, vector<Food> veg
 						FILE* writeFile = fopen("freeze.txt", "a");
 						fprintf(writeFile, "\n");
 						fprintf(writeFile, drink[cursor].getName().c_str());
+						fprintf(writeFile, " ");
+						fprintf(writeFile, "x x x");
+						fprintf(writeFile, " ");
+						fprintf(writeFile, to_string(y).c_str()); // 재료 1 2 3 2000
+						fprintf(writeFile, " ");// 재료 1 2 3 2000 
+						fprintf(writeFile, to_string(m).c_str()); // 재료 1 2 3 2000 2
+						fprintf(writeFile, " ");// 재료 1 2 3 2000 2 
+						fprintf(writeFile, to_string(d).c_str()); // 재료 1 2 3 2000 2 2 2
 						fclose(writeFile);
 						return true;
 					}
@@ -300,6 +385,14 @@ bool refrigerator::getKey(vector<Food> meat, vector<Food> fish, vector<Food> veg
 						FILE* writeFile = fopen("room.txt", "a");
 						fprintf(writeFile, "\n");
 						fprintf(writeFile, drink[cursor].getName().c_str());
+						fprintf(writeFile, " ");
+						fprintf(writeFile, "x x x");
+						fprintf(writeFile, " ");
+						fprintf(writeFile, to_string(y).c_str()); // 재료 1 2 3 2000
+						fprintf(writeFile, " ");// 재료 1 2 3 2000 
+						fprintf(writeFile, to_string(m).c_str()); // 재료 1 2 3 2000 2
+						fprintf(writeFile, " ");// 재료 1 2 3 2000 2 
+						fprintf(writeFile, to_string(d).c_str()); // 재료 1 2 3 2000 2 2 2
 						fclose(writeFile);
 						return true;
 					}
@@ -321,6 +414,8 @@ bool refrigerator::getKey(vector<Food> meat, vector<Food> fish, vector<Food> veg
 			{
 				cout << "재료의 상태를 입력하세요: (1.냉장 2.냉동 3.상온) ";
 				cin >> i;
+				cout << "재료의 유통기한을 입력하세요(ex: 2022 03 01): ";
+				cin >> y >> m >> d;
 				if (i == 1)
 				{
 					if (!isexist_refri(sauce[cursor].getName()))
@@ -328,6 +423,14 @@ bool refrigerator::getKey(vector<Food> meat, vector<Food> fish, vector<Food> veg
 						FILE* writeFile = fopen("refrigeration.txt", "a");
 						fprintf(writeFile, "\n");
 						fprintf(writeFile, sauce[cursor].getName().c_str());
+						fprintf(writeFile, " ");
+						fprintf(writeFile, "x x x");
+						fprintf(writeFile, " ");
+						fprintf(writeFile, to_string(y).c_str()); // 재료 1 2 3 2000
+						fprintf(writeFile, " ");// 재료 1 2 3 2000 
+						fprintf(writeFile, to_string(m).c_str()); // 재료 1 2 3 2000 2
+						fprintf(writeFile, " ");// 재료 1 2 3 2000 2 
+						fprintf(writeFile, to_string(d).c_str()); // 재료 1 2 3 2000 2 2 2
 						fclose(writeFile);
 						return true;
 					}
@@ -345,6 +448,14 @@ bool refrigerator::getKey(vector<Food> meat, vector<Food> fish, vector<Food> veg
 						FILE* writeFile = fopen("freeze.txt", "a");
 						fprintf(writeFile, "\n");
 						fprintf(writeFile, sauce[cursor].getName().c_str());
+						fprintf(writeFile, " ");
+						fprintf(writeFile, "x x x");
+						fprintf(writeFile, " ");
+						fprintf(writeFile, to_string(y).c_str()); // 재료 1 2 3 2000
+						fprintf(writeFile, " ");// 재료 1 2 3 2000 
+						fprintf(writeFile, to_string(m).c_str()); // 재료 1 2 3 2000 2
+						fprintf(writeFile, " ");// 재료 1 2 3 2000 2 
+						fprintf(writeFile, to_string(d).c_str()); // 재료 1 2 3 2000 2 2 2
 						fclose(writeFile);
 						return true;
 					}
@@ -362,6 +473,14 @@ bool refrigerator::getKey(vector<Food> meat, vector<Food> fish, vector<Food> veg
 						FILE* writeFile = fopen("room.txt", "a");
 						fprintf(writeFile, "\n");
 						fprintf(writeFile, sauce[cursor].getName().c_str());
+						fprintf(writeFile, " ");
+						fprintf(writeFile, "x x x");
+						fprintf(writeFile, " ");
+						fprintf(writeFile, to_string(y).c_str()); // 재료 1 2 3 2000
+						fprintf(writeFile, " ");// 재료 1 2 3 2000 
+						fprintf(writeFile, to_string(m).c_str()); // 재료 1 2 3 2000 2
+						fprintf(writeFile, " ");// 재료 1 2 3 2000 2 
+						fprintf(writeFile, to_string(d).c_str()); // 재료 1 2 3 2000 2 2 2
 						fclose(writeFile);
 						return true;
 					}
@@ -383,6 +502,8 @@ bool refrigerator::getKey(vector<Food> meat, vector<Food> fish, vector<Food> veg
 			{
 				cout << "재료의 상태를 입력하세요: (1.냉장 2.냉동 3.상온) ";
 				cin >> i;
+				cout << "재료의 유통기한을 입력하세요(ex: 2022 03 01): ";
+				cin >> y >> m >> d;
 				if (i == 1)
 				{
 					if (!isexist_refri(other[cursor].getName()))
@@ -390,6 +511,14 @@ bool refrigerator::getKey(vector<Food> meat, vector<Food> fish, vector<Food> veg
 						FILE* writeFile = fopen("refrigeration.txt", "a");
 						fprintf(writeFile, "\n");
 						fprintf(writeFile, other[cursor].getName().c_str());
+						fprintf(writeFile, " ");
+						fprintf(writeFile, "x x x");
+						fprintf(writeFile, " ");
+						fprintf(writeFile, to_string(y).c_str()); // 재료 1 2 3 2000
+						fprintf(writeFile, " ");// 재료 1 2 3 2000 
+						fprintf(writeFile, to_string(m).c_str()); // 재료 1 2 3 2000 2
+						fprintf(writeFile, " ");// 재료 1 2 3 2000 2 
+						fprintf(writeFile, to_string(d).c_str()); // 재료 1 2 3 2000 2 2 2
 						fclose(writeFile);
 						return true;
 					}
@@ -408,6 +537,14 @@ bool refrigerator::getKey(vector<Food> meat, vector<Food> fish, vector<Food> veg
 						FILE* writeFile = fopen("freeze.txt", "a");
 						fprintf(writeFile, "\n");
 						fprintf(writeFile, other[cursor].getName().c_str());
+						fprintf(writeFile, " ");
+						fprintf(writeFile, "x x x");
+						fprintf(writeFile, " ");
+						fprintf(writeFile, to_string(y).c_str()); // 재료 1 2 3 2000
+						fprintf(writeFile, " ");// 재료 1 2 3 2000 
+						fprintf(writeFile, to_string(m).c_str()); // 재료 1 2 3 2000 2
+						fprintf(writeFile, " ");// 재료 1 2 3 2000 2 
+						fprintf(writeFile, to_string(d).c_str()); // 재료 1 2 3 2000 2 2 2
 						fclose(writeFile);
 						return true;
 					}
@@ -425,6 +562,14 @@ bool refrigerator::getKey(vector<Food> meat, vector<Food> fish, vector<Food> veg
 						FILE* writeFile = fopen("room.txt", "a");
 						fprintf(writeFile, "\n");
 						fprintf(writeFile, other[cursor].getName().c_str());
+						fprintf(writeFile, " ");
+						fprintf(writeFile, "x x x");
+						fprintf(writeFile, " ");
+						fprintf(writeFile, to_string(y).c_str()); // 재료 1 2 3 2000
+						fprintf(writeFile, " ");// 재료 1 2 3 2000 
+						fprintf(writeFile, to_string(m).c_str()); // 재료 1 2 3 2000 2
+						fprintf(writeFile, " ");// 재료 1 2 3 2000 2 
+						fprintf(writeFile, to_string(d).c_str()); // 재료 1 2 3 2000 2 2 2
 						fclose(writeFile);
 						return true;
 					}
@@ -544,6 +689,7 @@ bool refrigerator::getKey(vector<Food> meat, vector<Food> fish, vector<Food> veg
 
 void refrigerator::show_inventory(vector<Food> refrigeration, vector<Food> freeze, vector<Food> room) //냉장, 냉동, 실온 리스트를 인자로 받고 출력
 {
+	int i;
 	cout << "+==============================================================+\n";
 	cout << "|";
 	if (position == "fridge") {
@@ -578,7 +724,7 @@ void refrigerator::show_inventory(vector<Food> refrigeration, vector<Food> freez
 	cout << endl;
 
 	cout << "|==============================================================|\n";
-	for (int i = 1; i <= 20; i++) {
+	for (i = 1; i <= 20; i++) {
 		if (position == "fridge" && cursor == i) {
 			if (refrigeration.size() <= i) {
 				cout << "|" << left << setw(20) << "";
@@ -638,6 +784,45 @@ void refrigerator::show_inventory(vector<Food> refrigeration, vector<Food> freez
 		}
 	}
 	cout << "+==============================================================+\n";
+	for (int i = 1; i <= 20; i++) {
+		//cout << refrigeration.size(); ==> 1
+		if (position == "fridge" && cursor == i) {
+			if (i < refrigeration.size()) {
+				cout << refrigeration[cursor].getName() << "의 레시피는 ";
+				if (refrigeration[cursor].getRecipe() != "")
+					cout << refrigeration[cursor].getRecipe() << "입니다." << endl;
+				else
+					cout << "없습니다." << endl;
+
+				cout << "유통기한은 " << refrigeration[cursor].getFYear() << "년 " << refrigeration[cursor].getFMonth() << "월 " << refrigeration[cursor].getFDay() << "일" << "까지입니다.";
+			}
+		}
+		else if (position == "freezer" && cursor == i) {
+			if (i < freeze.size()) {
+				cout << freeze[cursor].getName() << "의 레시피는 ";
+				if (freeze[cursor].getRecipe() != "")
+					cout << freeze[cursor].getRecipe() << "입니다." << endl;
+				else
+					cout << "없습니다." << endl;
+
+				cout << "유통기한은 " << freeze[cursor].getFYear() << "년 " << freeze[cursor].getFMonth() << "월 " << freeze[cursor].getFDay() << "일" << "까지입니다.";
+
+			}
+		}
+		else if (position == "room" && cursor == i) {
+			if (i < room.size()) {
+				cout << room[cursor].getName() << "의 레시피는 ";
+				if (room[cursor].getRecipe() != "")
+					cout << room[cursor].getRecipe() << "입니다." << endl;
+				else
+					cout << "없습니다." << endl;
+
+				cout << "유통기한은 " << room[cursor].getFYear() << "년 " << room[cursor].getFMonth() << "월 " << room[cursor].getFDay() << "일" << "까지입니다.";
+
+			}
+		}
+	}
+	
 }
 
 void refrigerator::show_ingredient(vector<Food> meat, vector<Food> fish, vector<Food> veget, vector<Food> sauce, vector<Food> drink, vector<Food> other) {

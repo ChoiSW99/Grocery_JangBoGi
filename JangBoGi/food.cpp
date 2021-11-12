@@ -3,14 +3,24 @@
 string Food::getRecipe() const {
 	string FullRecipe;
 	for (int i = 0; i < 3; i++) {
-		if (recipe[i] != "NO" && recipe[i] != "No") {
+		if (recipe[i] != "x" && recipe[i] != "X") {
 			FullRecipe += recipe[i];
-			if ((i < 2) && ((recipe[i + 1] != "NO") && (recipe[i + 1] != "No")))
+			if ((i < 2) && ((recipe[i + 1] != "x") && (recipe[i + 1] != "X")))
 				FullRecipe += " ";
 		}
 	}
 	if (FullRecipe == "")
 		return "";
+	return FullRecipe;
+}
+
+string Food::getRecipe1() const {
+	string FullRecipe;
+	for (int i = 0; i < 3; i++) {
+			FullRecipe += recipe[i];
+			if (i < 2)
+				FullRecipe += " ";
+	}
 	return FullRecipe;
 }
 
@@ -35,7 +45,7 @@ void Food::setShelfDate(int f_year, int f_month, int f_day)
 			else
 				days = 30;
 
-			if ((1 <= f_day) && (f_day < days)) {
+			if ((1 <= f_day) && (f_day <= days)) {
 				this->f_year = f_year;
 				this->f_month = f_month;
 				this->f_day = f_day;
@@ -263,11 +273,24 @@ void writeInFile(vector<Food>& food) { // txt파일들에 식재료들 write
 		FILE* writeFile = fopen("refrigeration.txt", "w");
 		int i = 0;
 		int j = 1;
+		
 		while (i < food.size()) {
-			fprintf(writeFile, food[i].getName().c_str());
-			if (food[i].getRecipe() != "")
-				fprintf(writeFile, " ");
-			fprintf(writeFile, food[i].getRecipe().c_str());
+			if (i == 0) {
+				fprintf(writeFile, food[i].getName().c_str());
+			}
+			else {
+				fprintf(writeFile, food[i].getName().c_str()); // 재료
+				fprintf(writeFile, " "); // 재료 
+				fprintf(writeFile, food[i].getRecipe1().c_str()); // x x x 저장되도록 // 재료 1 2 3
+				fprintf(writeFile, " ");// 재료 1 2 3 
+				fprintf(writeFile, to_string(food[i].getFYear()).c_str()); // 재료 1 2 3 2000
+				fprintf(writeFile, " ");// 재료 1 2 3 2000 
+				fprintf(writeFile, to_string(food[i].getFMonth()).c_str()); // 재료 1 2 3 2000 2
+				fprintf(writeFile, " ");// 재료 1 2 3 2000 2 
+				fprintf(writeFile, to_string(food[i].getFDay()).c_str()); // 재료 1 2 3 2000 2 2 2
+			}
+			
+
 			if (j < food.size()) {
 				fprintf(writeFile, "\n");
 			}
@@ -281,10 +304,22 @@ void writeInFile(vector<Food>& food) { // txt파일들에 식재료들 write
 		int i = 0;
 		int j = 1;
 		while (i < food.size()) {
-			fprintf(writeFile, food[i].getName().c_str());
-			if (food[i].getRecipe() != "")
-				fprintf(writeFile, " ");
-			fprintf(writeFile, food[i].getRecipe().c_str());
+			if (i == 0) {
+				fprintf(writeFile, food[i].getName().c_str());
+			}
+			else {
+				fprintf(writeFile, food[i].getName().c_str()); // 재료
+				fprintf(writeFile, " "); // 재료 
+				fprintf(writeFile, food[i].getRecipe1().c_str()); // x x x 저장되도록 // 재료 1 2 3
+				fprintf(writeFile, " ");// 재료 1 2 3 
+				fprintf(writeFile, to_string(food[i].getFYear()).c_str()); // 재료 1 2 3 2000
+				fprintf(writeFile, " ");// 재료 1 2 3 2000 
+				fprintf(writeFile, to_string(food[i].getFMonth()).c_str()); // 재료 1 2 3 2000 2
+				fprintf(writeFile, " ");// 재료 1 2 3 2000 2 
+				fprintf(writeFile, to_string(food[i].getFDay()).c_str()); // 재료 1 2 3 2000 2 2 2
+			}
+			
+
 			if (j < food.size()) {
 				fprintf(writeFile, "\n");
 			}
@@ -298,10 +333,22 @@ void writeInFile(vector<Food>& food) { // txt파일들에 식재료들 write
 		int i = 0;
 		int j = 1;
 		while (i < food.size()) {
-			fprintf(writeFile, food[i].getName().c_str());
-			if (food[i].getRecipe() != "")
-				fprintf(writeFile, " ");
-			fprintf(writeFile, food[i].getRecipe().c_str());
+			if (i == 0) {
+				fprintf(writeFile, food[i].getName().c_str());
+			}
+			else {
+				fprintf(writeFile, food[i].getName().c_str()); // 재료
+				fprintf(writeFile, " "); // 재료 
+				fprintf(writeFile, food[i].getRecipe1().c_str()); // x x x 저장되도록 // 재료 1 2 3
+				fprintf(writeFile, " ");// 재료 1 2 3 
+				fprintf(writeFile, to_string(food[i].getFYear()).c_str()); // 재료 1 2 3 2000
+				fprintf(writeFile, " ");// 재료 1 2 3 2000 
+				fprintf(writeFile, to_string(food[i].getFMonth()).c_str()); // 재료 1 2 3 2000 2
+				fprintf(writeFile, " ");// 재료 1 2 3 2000 2 
+				fprintf(writeFile, to_string(food[i].getFDay()).c_str()); // 재료 1 2 3 2000 2 2 2
+			}
+			
+
 			if (j < food.size()) {
 				fprintf(writeFile, "\n");
 			}
@@ -418,8 +465,10 @@ void init(vector<Food>& food, string s) { //s에 맞는 식재료 목록으로 초기화함 ex
 
 				Food new_food(name, recipe1, recipe2, recipe3);
 				food.push_back(new_food);
+				
 			}
 		}
+		fclose(readFile);
 	}
 	if (s == "어류") {
 		FILE* readFile = NULL;
@@ -444,8 +493,10 @@ void init(vector<Food>& food, string s) { //s에 맞는 식재료 목록으로 초기화함 ex
 				strcpy(recipe3, ptr);
 				Food new_food(name, recipe1, recipe2, recipe3);
 				food.push_back(new_food);
+				
 			}
 		}
+		fclose(readFile);
 	}
 	if (s == "채소") {
 		FILE* readFile = NULL;
@@ -461,8 +512,10 @@ void init(vector<Food>& food, string s) { //s에 맞는 식재료 목록으로 초기화함 ex
 				strcpy(name, ptr);
 				Food new_food(name);
 				food.push_back(new_food);
+				
 			}
 		}
+		fclose(readFile);
 	}
 	if (s == "소스") {
 		FILE* readFile = NULL;
@@ -478,8 +531,10 @@ void init(vector<Food>& food, string s) { //s에 맞는 식재료 목록으로 초기화함 ex
 				strcpy(name, ptr);
 				Food new_food(name);
 				food.push_back(new_food);
+				
 			}
 		}
+		fclose(readFile);
 	}
 	if (s == "음료") {
 		FILE* readFile = NULL;
@@ -495,8 +550,10 @@ void init(vector<Food>& food, string s) { //s에 맞는 식재료 목록으로 초기화함 ex
 				strcpy(name, ptr);
 				Food new_food(name);
 				food.push_back(new_food);
+				
 			}
 		}
+		fclose(readFile);
 	}
 	if (s == "기타") {
 		FILE* readFile = NULL;
@@ -512,8 +569,10 @@ void init(vector<Food>& food, string s) { //s에 맞는 식재료 목록으로 초기화함 ex
 				strcpy(name, ptr);
 				Food new_food(name);
 				food.push_back(new_food);
+				
 			}
 		}
+		fclose(readFile);
 	}
 
 	// 냉장, 냉동, 상온 현황에 보이기 위해 추가
@@ -540,39 +599,37 @@ void init(vector<Food>& food, string s) { //s에 맞는 식재료 목록으로 초기화함 ex
 				char recipe1[32] = { 0, };
 				char recipe2[32] = { 0, };
 				char recipe3[32] = { 0, };
+				char y[5];
+				char m[3];
+				char d[3];
 
-				char* ptr = strtok(buf, " \n");
+				char* ptr = strtok(buf, " \n"); // 재료이름 x x x 2202 22 22
 				strcpy(name, ptr);
 
+				ptr = strtok(NULL, " "); 
+				strcpy(recipe1, ptr);
+
 				ptr = strtok(NULL, " ");
-				if (ptr != NULL)
-				{ // 문자열의 끝까지
+				strcpy(recipe2, ptr);
 
-					strcpy(recipe1, ptr);
+				ptr = strtok(NULL, " ");
+				strcpy(recipe3, ptr);
+				
+				ptr = strtok(NULL, " ");
+				strcpy(y, ptr);
+				
+				ptr = strtok(NULL, " ");
+				strcpy(m, ptr);
 
-					ptr = strtok(NULL, " ");
-					strcpy(recipe2, ptr);
+				ptr = strtok(NULL, "\n");
+				strcpy(d, ptr);
 
-					ptr = strtok(NULL, "\n");
-					strcpy(recipe3, ptr);
-				}
-
-
-				if (recipe1[0] != 0)
-				{ // 육류, 어류같이 recipe이 있으면
-					Food new_food(name, recipe1, recipe2, recipe3);
-					new_food.setState1("냉장");
-					food.push_back(new_food);
-				}
-				else // recipe이 없으면
-				{
-					Food new_food(name);
-					new_food.setState1("냉장");
-					food.push_back(new_food);
-				}
-
+				Food new_food(name, recipe1, recipe2, recipe3, atoi(y), atoi(m) ,atoi(d));
+				new_food.setState1("냉장");
+				food.push_back(new_food);
 			}
 		}
+		fclose(readFile);
 	}
 
 	if (s == "냉동") { // freeze
@@ -598,39 +655,37 @@ void init(vector<Food>& food, string s) { //s에 맞는 식재료 목록으로 초기화함 ex
 				char recipe1[32] = { 0, };
 				char recipe2[32] = { 0, };
 				char recipe3[32] = { 0, };
+				char y[5];
+				char m[3];
+				char d[3];
 
-				char* ptr = strtok(buf, " \n");
+				char* ptr = strtok(buf, " \n"); // 재료이름 x x x 2202 22 22
 				strcpy(name, ptr);
 
 				ptr = strtok(NULL, " ");
-				if (ptr != NULL)
-				{ // 문자열의 끝까지
+				strcpy(recipe1, ptr);
 
-					strcpy(recipe1, ptr);
+				ptr = strtok(NULL, " ");
+				strcpy(recipe2, ptr);
 
-					ptr = strtok(NULL, " ");
-					strcpy(recipe2, ptr);
+				ptr = strtok(NULL, " ");
+				strcpy(recipe3, ptr);
 
-					ptr = strtok(NULL, "\n");
-					strcpy(recipe3, ptr);
-				}
+				ptr = strtok(NULL, " ");
+				strcpy(y, ptr);
 
+				ptr = strtok(NULL, " ");
+				strcpy(m, ptr);
 
-				if (recipe1[0] != 0)
-				{ // 육류, 어류같이 recipe이 있으면
-					Food new_food(name, recipe1, recipe2, recipe3);
-					new_food.setState1("냉동");
-					food.push_back(new_food);
-				}
-				else // recipe이 없으면
-				{
-					Food new_food(name);
-					new_food.setState1("냉동");
-					food.push_back(new_food);
-				}
+				ptr = strtok(NULL, "\n");
+				strcpy(d, ptr);
 
+				Food new_food(name, recipe1, recipe2, recipe3, atoi(y), atoi(m), atoi(d));
+				new_food.setState1("냉동");
+				food.push_back(new_food);
 			}
 		}
+			fclose(readFile);
 	}
 
 	if (s == "상온") { // room
@@ -656,38 +711,38 @@ void init(vector<Food>& food, string s) { //s에 맞는 식재료 목록으로 초기화함 ex
 				char recipe1[32] = { 0, };
 				char recipe2[32] = { 0, };
 				char recipe3[32] = { 0, };
+				char y[5];
+				char m[3];
+				char d[3];
 
-				char* ptr = strtok(buf, " \n");
+				char* ptr = strtok(buf, " \n"); // 재료이름 x x x 2202 22 22
 				strcpy(name, ptr);
 
 				ptr = strtok(NULL, " ");
-				if (ptr != NULL)
-				{ // 문자열의 끝까지
+				strcpy(recipe1, ptr);
 
-					strcpy(recipe1, ptr);
+				ptr = strtok(NULL, " ");
+				strcpy(recipe2, ptr);
 
-					ptr = strtok(NULL, " ");
-					strcpy(recipe2, ptr);
+				ptr = strtok(NULL, " ");
+				strcpy(recipe3, ptr);
 
-					ptr = strtok(NULL, "\n");
-					strcpy(recipe3, ptr);
-				}
+				ptr = strtok(NULL, " ");
+				strcpy(y, ptr);
 
+				ptr = strtok(NULL, " ");
+				strcpy(m, ptr);
 
-				if (recipe1[0] != 0)
-				{ // 육류, 어류같이 recipe이 있으면
-					Food new_food(name, recipe1, recipe2, recipe3);
-					new_food.setState1("상온");
-					food.push_back(new_food);
-				}
-				else // recipe이 없으면
-				{
-					Food new_food(name);
-					new_food.setState1("상온");
-					food.push_back(new_food);
-				}
+				ptr = strtok(NULL, "\n");
+				strcpy(d, ptr);
+
+				Food new_food(name, recipe1, recipe2, recipe3, atoi(y), atoi(m), atoi(d));
+				new_food.setState1("냉동");
+				food.push_back(new_food);
 
 			}
+			
 		}
+		fclose(readFile);
 	}
 }

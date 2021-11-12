@@ -7,6 +7,8 @@
 #include <ctime>
 #include <vector>
 #include <cstring>
+#include <string>
+#include <cstdlib>
 using namespace std;
 
 class Food
@@ -22,7 +24,7 @@ class Food
 
 public:
 	//Food() :name(), makeFood(), f_year(), f_month(), f_day(), state() {}
-	Food(string name, string recipe1 = "NO", string recipe2 = "NO", string recipe3 = "NO", int f_year = 0, int f_month = 0, int f_day = 0, string state = "미")
+	Food(string name, string recipe1 = "x", string recipe2 = "x", string recipe3 = "x", int f_year = 0, int f_month = 0, int f_day = 0, string state = "미")
 	{
 		this->name = name;
 		this->f_year = f_year;
@@ -38,6 +40,7 @@ public:
 
 	string getName() const { return name; }// 이름게터
 	string getRecipe() const; // 만들 수 있는 음식 게터
+	string getRecipe1() const; // 만들 수 있는 음식 게터
 	//string getRecipe() const;
 	string getState() const { return state; } // state 게터
 	int getFYear() const { return f_year; } // 유통기한 년

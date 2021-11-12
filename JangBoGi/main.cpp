@@ -39,6 +39,7 @@ int main()
 		{
 			system(" mode  con lines=25   cols=70 ");
 			ref->setPosition("fridge");
+			
 			while (1) {
 				init(refrigeration, "³ÃÀå");
 				init(freeze, "³Ãµ¿");
@@ -57,6 +58,7 @@ int main()
 		{
 			system(" mode  con lines=30   cols=140 ");
 			ref->setPosition("meat");
+			
 			while (1) {
 				init(meat, "À°·ù");
 				init(fish, "¾î·ù");
