@@ -30,14 +30,14 @@ int main()
 
 	while (1)
 	{
-		system(" mode  con lines=30   cols=120 ");
+		system(" mode  con lines=25   cols=105 ");
 		system("cls");
 		init();
 		title();
 		int menucode = menudraw();
 		if (menucode == 0)
 		{
-			system(" mode  con lines=25   cols=70 ");
+			system(" mode  con lines=26   cols=70 ");
 			ref->setPosition("fridge");
 			
 			while (1) {

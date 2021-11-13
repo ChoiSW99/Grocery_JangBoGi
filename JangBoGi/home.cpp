@@ -18,6 +18,12 @@ void title()
 	printf("		##    ## ##     ## ##   ### ##    ##  ##     ## ##     ## ##    ##   ##  \n");
 	printf("		 ######  ##     ## ##    ##  ######   ########   #######   ######   #### \n");
 	printf("\n");
+	gotoxy(17, 22);
+	printf("선택: 엔터");
+	gotoxy(47, 22);
+	printf("이동: 방향키");
+	gotoxy(77, 22);
+	printf("뒤로가기: X");
 }
 
 int menudraw()
@@ -33,7 +39,7 @@ int menudraw()
 	gotoxy(x, y + 3);
 	printf("종 료");
 	while (1)
-	{
+	{	
 		int n = keyControl();
 		switch (n)
 		{
@@ -55,7 +61,7 @@ int menudraw()
 				printf(">");
 			}
 			break;
-		case SUBMIT: //spacebar
+		case SUBMIT: 
 			return y - 12;
 		}
 	}

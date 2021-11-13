@@ -5,15 +5,25 @@
 bool add()
 {
 	system("cls");
-	int key;
 	string a;
 	string r1, r2, r3;
 	int i;
-	cout << "추가할 재료와 번호를 입력하세요 ( 1:고기 2:생선 3:채소 4:음료 5:소스 6:그 외) ";
-	cin >> a >> i;
-	if (a == "x" || a == "X") { //수정해야됨.
+	cout << "추가할 재료의 이름을 입력해주세요 (처음 화면으로 돌아갈려면 x를 입력해주세요): ";
+	cin >> a;
+	if (a == "x" || a == "X") { 
 		return false;
 	}
+	cout << "추가할 재료의 종류를 입력해주세요 ( 1:고기 2:생선 3:채소 4:음료 5:소스 6:그 외): ";
+	cin >> i;
+	
+	if (cin.fail())                                                                                   
+	{
+		cout << "잘못된 입력입니다.";
+		Sleep(1000);
+		cin.clear();
+		cin.ignore(10, '\n');
+	}
+
 	if (i == 1)
 	{
 		if (!(isexist_meat(a)))
@@ -155,7 +165,7 @@ bool add()
 	}
 	else
 	{
-		cout << "잘못된 종류입니다\n";
+		cout << "잘못된 입력입니다\n";
 		return true;
 	}
 }
