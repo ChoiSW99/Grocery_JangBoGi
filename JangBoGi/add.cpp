@@ -144,7 +144,7 @@ bool add()
 			return true;
 		}
 	}
-	else if (i == 5)
+	else if (i == 6)
 	{
 		if (!(isexist_other(a)))
 		{

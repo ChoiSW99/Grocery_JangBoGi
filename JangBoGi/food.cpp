@@ -192,7 +192,7 @@ void writeInFile(vector<Food>& food) { // txt파일들에 식재료들 write
 		while (i < food.size()) {
 			fprintf(writeFile, food[i].getName().c_str());
 			fprintf(writeFile, " ");
-			fprintf(writeFile, food[i].getRecipe().c_str());
+			fprintf(writeFile, food[i].getRecipe1().c_str());
 			if (j < food.size()) {
 				fprintf(writeFile, "\n");
 			}
@@ -207,7 +207,7 @@ void writeInFile(vector<Food>& food) { // txt파일들에 식재료들 write
 		while (i < food.size()) {
 			fprintf(writeFile, food[i].getName().c_str());
 			fprintf(writeFile, " ");
-			fprintf(writeFile, food[i].getRecipe().c_str());
+			fprintf(writeFile, food[i].getRecipe1().c_str());
 			if (j < food.size()) {
 				fprintf(writeFile, "\n");
 			}
@@ -360,81 +360,81 @@ void writeInFile(vector<Food>& food) { // txt파일들에 식재료들 write
 	return;
 } // 입력해서 쓰는게 아니라 else 처리 안해줌. 
 
-void readInFile(vector<Food>& food) { // 파일에 저장된 해당 식재료의 목록 콘솔창에 출력
-	int i = 0;
-	if (food[0].getName() == "소등심") {
-		FILE* readFile = fopen("meat.txt", "r"); //r 은 읽기모드
-		while (i < food.size()) {
-			int sizeName = food[i].getName().size();
-			int sizeRecipe = food[i].getRecipe().size();
-			char name[50], recipe[50];
-			fgets(name, sizeName + 2, readFile);
-			printf("%s", name);
-			fgets(recipe, sizeRecipe + 2, readFile);
-			printf("%s", recipe);
-			i++;
-		}
-	}
-	else if (food[0].getName() == "생태") {
-		FILE* readFile = fopen("fish.txt", "r");
-		while (i < food.size()) {
-			int sizeName = food[i].getName().size();
-			int sizeRecipe = food[i].getRecipe().size();
-			char name[20], recipe[50];
-			fgets(name, sizeName + 2, readFile);
-			printf("%s", name);
-			fgets(recipe, sizeRecipe + 2, readFile);
-			printf("%s", recipe);
-			i++;
-		}
-	}
-	else if (food[0].getName() == "가지") {
-		FILE* readFile = fopen("veget.txt", "r");
-		while (i < food.size()) {
-			int sizeName = food[i].getName().size();
-			char name[20];
-			fgets(name, sizeName + 2, readFile);
-			printf("%s", name);
-
-			i++;
-		}
-	}
-	else if (food[0].getName() == "고수") {
-		FILE* readFile = fopen("sauce.txt", "r");
-		while (i < food.size()) {
-			int sizeName = food[i].getName().size();
-			char name[20];
-			fgets(name, sizeName + 2, readFile);
-			printf("%s", name);
-
-			i++;
-		}
-	}
-	else if (food[0].getName() == "우유") {
-		FILE* readFile = fopen("drink.txt", "r");
-		while (i < food.size()) {
-			int sizeName = food[i].getName().size();
-			char name[20];
-			fgets(name, sizeName + 2, readFile);
-			printf("%s", name);
-
-			i++;
-		}
-	}
-	else if (food[0].getName() == "박력분") {
-		FILE* readFile = fopen("other.txt", "r");
-		while (i < food.size()) {
-			int sizeName = food[i].getName().size();
-			char name[20];
-			fgets(name, sizeName + 2, readFile); // \n 의 크기는 2
-			printf("%s", name);
-
-			i++;
-		}
-	}
-	cout << endl;
-	return;
-}
+//void readInFile(vector<Food>& food) { // 파일에 저장된 해당 식재료의 목록 콘솔창에 출력
+//	int i = 0;
+//	if (food[0].getName() == "소등심") {
+//		FILE* readFile = fopen("meat.txt", "r"); //r 은 읽기모드
+//		while (i < food.size()) {
+//			int sizeName = food[i].getName().size();
+//			int sizeRecipe = food[i].getRecipe().size();
+//			char name[50], recipe[50];
+//			fgets(name, sizeName + 2, readFile);
+//			printf("%s", name);
+//			fgets(recipe, sizeRecipe + 2, readFile);
+//			printf("%s", recipe);
+//			i++;
+//		}
+//	}
+//	else if (food[0].getName() == "생태") {
+//		FILE* readFile = fopen("fish.txt", "r");
+//		while (i < food.size()) {
+//			int sizeName = food[i].getName().size();
+//			int sizeRecipe = food[i].getRecipe().size();
+//			char name[20], recipe[50];
+//			fgets(name, sizeName + 2, readFile);
+//			printf("%s", name);
+//			fgets(recipe, sizeRecipe + 2, readFile);
+//			printf("%s", recipe);
+//			i++;
+//		}
+//	}
+//	else if (food[0].getName() == "가지") {
+//		FILE* readFile = fopen("veget.txt", "r");
+//		while (i < food.size()) {
+//			int sizeName = food[i].getName().size();
+//			char name[20];
+//			fgets(name, sizeName + 2, readFile);
+//			printf("%s", name);
+//
+//			i++;
+//		}
+//	}
+//	else if (food[0].getName() == "고수") {
+//		FILE* readFile = fopen("sauce.txt", "r");
+//		while (i < food.size()) {
+//			int sizeName = food[i].getName().size();
+//			char name[20];
+//			fgets(name, sizeName + 2, readFile);
+//			printf("%s", name);
+//
+//			i++;
+//		}
+//	}
+//	else if (food[0].getName() == "우유") {
+//		FILE* readFile = fopen("drink.txt", "r");
+//		while (i < food.size()) {
+//			int sizeName = food[i].getName().size();
+//			char name[20];
+//			fgets(name, sizeName + 2, readFile);
+//			printf("%s", name);
+//
+//			i++;
+//		}
+//	}
+//	else if (food[0].getName() == "박력분") {
+//		FILE* readFile = fopen("other.txt", "r");
+//		while (i < food.size()) {
+//			int sizeName = food[i].getName().size();
+//			char name[20];
+//			fgets(name, sizeName + 2, readFile); // \n 의 크기는 2
+//			printf("%s", name);
+//
+//			i++;
+//		}
+//	}
+//	cout << endl;
+//	return;
+//}
 
 void init(vector<Food>& food, string s) { //s에 맞는 식재료 목록으로 초기화함 ex) init(food, "육류") ---> meat.txt에 작성된 식재료들로 food 벡터가 초기화됨.
 	food.clear();
