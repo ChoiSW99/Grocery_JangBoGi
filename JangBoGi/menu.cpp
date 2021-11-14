@@ -58,6 +58,15 @@ bool refrigerator::getKey(vector<Food> meat, vector<Food> fish, vector<Food> veg
 					cin >> i;
 					cout << "재료의 유통기한을 입력하세요(ex: 2022 03 01): ";
 					cin >> y >> m >> d;
+					while(1) {
+						if (y <= 2020 || m <= 0 || d <= 0) {
+							cout << "재료의 유통기한을 재입력하세요(ex: 2022 03 01): ";
+							cin >> y >> m >> d;
+						}
+						else 
+							break;
+					}
+
 					if (i == 1)
 					{
 						if (!isexist_refri(meat[cursor].getName()))
@@ -794,7 +803,8 @@ void refrigerator::show_inventory(vector<Food> refrigeration, vector<Food> freez
 				else
 					cout << "없습니다." << endl;
 
-				cout << "유통기한은 " << refrigeration[cursor].getFYear() << "년 " << refrigeration[cursor].getFMonth() << "월 " << refrigeration[cursor].getFDay() << "일" << "까지입니다.";
+				cout << "유통기한은 " << refrigeration[cursor].getFYear() << "년 " << refrigeration[cursor].getFMonth() << "월 " << refrigeration[cursor].getFDay() << "일" << "까지입니다." << " ";
+				refrigeration[cursor].showLeftDate();
 			}
 		}
 		else if (position == "freezer" && cursor == i) {
@@ -805,8 +815,8 @@ void refrigerator::show_inventory(vector<Food> refrigeration, vector<Food> freez
 				else
 					cout << "없습니다." << endl;
 
-				cout << "유통기한은 " << freeze[cursor].getFYear() << "년 " << freeze[cursor].getFMonth() << "월 " << freeze[cursor].getFDay() << "일" << "까지입니다.";
-
+				cout << "유통기한은 " << freeze[cursor].getFYear() << "년 " << freeze[cursor].getFMonth() << "월 " << freeze[cursor].getFDay() << "일" << "까지입니다." << " ";
+				freeze[cursor].showLeftDate();
 			}
 		}
 		else if (position == "room" && cursor == i) {
@@ -817,12 +827,11 @@ void refrigerator::show_inventory(vector<Food> refrigeration, vector<Food> freez
 				else
 					cout << "없습니다." << endl;
 
-				cout << "유통기한은 " << room[cursor].getFYear() << "년 " << room[cursor].getFMonth() << "월 " << room[cursor].getFDay() << "일" << "까지입니다.";
-
+				cout << "유통기한은 " << room[cursor].getFYear() << "년 " << room[cursor].getFMonth() << "월 " << room[cursor].getFDay() << "일" << "까지입니다." << " ";
+				room[cursor].showLeftDate();
 			}
 		}
 	}
-	
 }
 
 void refrigerator::show_ingredient(vector<Food> meat, vector<Food> fish, vector<Food> veget, vector<Food> sauce, vector<Food> drink, vector<Food> other) {

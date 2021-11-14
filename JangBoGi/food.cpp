@@ -101,8 +101,8 @@ void Food::setState1(string state) { // 현황판에 보이기 위해 작성
 }
 
 void Food::showLeftDate() {
-	if (state == "미") //현재 사용자의 냉장고에 미보관이면 유통기한 출력X
-		return;
+	//if (state == "미") //현재 사용자의 냉장고에 미보관이면 유통기한 출력X
+	//	return;
 	time_t shelfdate, today;
 	double diff; //유통기한과 현재시각 비교
 	int day; //비교 후 남은 일수 넣음
@@ -114,75 +114,13 @@ void Food::showLeftDate() {
 	shelfdate = mktime(&user_stime); //유통기한
 	time(&today); //현재시각
 	diff = difftime(shelfdate, today);
-	day = diff / (60 * 60 * 24); //남은 날
-
-	cout << getName() << "의 유통기한은 " << day << "일 남았습니다." << endl;
+	day = (int)diff / (60 * 60 * 24); //남은 날
+	if(day>=0)
+		cout  << day+1 << "일 남았습니다." << endl;
+	else
+		cout << -1*(day + 1) << "일 지났습니다." << endl;
 }
 
-void Food::showState() {
-	cout << "현재 " << getState() << "보관 중입니다." << endl;
-}
-
-void Food::showMakeFood() {
-	cout << getName() << "으로 만들 수 있는 음식은 " << getRecipe() << endl;
-}//만들 수 있는 음식
-
-//보관 중인 해당 식재료의 이름, 보관상태, 유통기한 한번에 보여줌.
-void Food::CheckAll() {
-	showMakeFood();
-	showLeftDate();
-	showState();
-	cout << endl;
-}
-
-//해당 Food목록의 전체 식재료명 출력
-void ShowAllFood(vector<Food>& food) {
-	for (Food a : food) {
-		cout << a.getName() << endl;
-	}
-}
-
-void addData(vector<Food>& food) { //vector<Food>& food 에 추가할 때
-	while (1) {
-		if (food[0].getName() == "소등심" || food[0].getName() == "생태") { //레시피까지 입력해야하는 육류, 어류
-			string name = "";
-			string recipe1 = "";
-			string recipe2 = "";
-			string recipe3 = "";
-			cout << "이름(q입력시 종료): ";
-			cin >> name;
-			if (name == "q") {
-				writeInFile(food);
-				return;
-			}
-			cout << "레시피 입력 ";
-			cin >> recipe1 >> recipe2 >> recipe3;
-			addIn(food, name, recipe1, recipe2, recipe3);
-		}
-		else { //레시피 입력 안해도 되는 채소, 음료, 소스, etc
-			string name = "";
-			cout << "이름(q입력시 종료): ";
-			cin >> name;
-			if (name == "q") {
-				writeInFile(food);
-				return;
-			}
-			addIn(food, name);
-		}
-	}
-}
-
-void addIn(vector<Food>& food, string name, string r1, string r2, string r3) // 하나의 식재료 추가
-{
-	food.push_back(Food(name, r1, r2, r3)); //식재료 추가	
-	writeInFile(food);
-}
-
-void addIn(vector<Food>& food, string name) // 하나의 식재료 추가
-{
-	food.push_back(Food(name)); //식재료 추가	
-	writeInFile(food);
-}
 
 //파일에 미리 입력된 데이터 외에 추가할 때 사용됨.
 void writeInFile(vector<Food>& food) { // txt파일들에 식재료들 write
@@ -360,81 +298,6 @@ void writeInFile(vector<Food>& food) { // txt파일들에 식재료들 write
 	return;
 } // 입력해서 쓰는게 아니라 else 처리 안해줌. 
 
-//void readInFile(vector<Food>& food) { // 파일에 저장된 해당 식재료의 목록 콘솔창에 출력
-//	int i = 0;
-//	if (food[0].getName() == "소등심") {
-//		FILE* readFile = fopen("meat.txt", "r"); //r 은 읽기모드
-//		while (i < food.size()) {
-//			int sizeName = food[i].getName().size();
-//			int sizeRecipe = food[i].getRecipe().size();
-//			char name[50], recipe[50];
-//			fgets(name, sizeName + 2, readFile);
-//			printf("%s", name);
-//			fgets(recipe, sizeRecipe + 2, readFile);
-//			printf("%s", recipe);
-//			i++;
-//		}
-//	}
-//	else if (food[0].getName() == "생태") {
-//		FILE* readFile = fopen("fish.txt", "r");
-//		while (i < food.size()) {
-//			int sizeName = food[i].getName().size();
-//			int sizeRecipe = food[i].getRecipe().size();
-//			char name[20], recipe[50];
-//			fgets(name, sizeName + 2, readFile);
-//			printf("%s", name);
-//			fgets(recipe, sizeRecipe + 2, readFile);
-//			printf("%s", recipe);
-//			i++;
-//		}
-//	}
-//	else if (food[0].getName() == "가지") {
-//		FILE* readFile = fopen("veget.txt", "r");
-//		while (i < food.size()) {
-//			int sizeName = food[i].getName().size();
-//			char name[20];
-//			fgets(name, sizeName + 2, readFile);
-//			printf("%s", name);
-//
-//			i++;
-//		}
-//	}
-//	else if (food[0].getName() == "고수") {
-//		FILE* readFile = fopen("sauce.txt", "r");
-//		while (i < food.size()) {
-//			int sizeName = food[i].getName().size();
-//			char name[20];
-//			fgets(name, sizeName + 2, readFile);
-//			printf("%s", name);
-//
-//			i++;
-//		}
-//	}
-//	else if (food[0].getName() == "우유") {
-//		FILE* readFile = fopen("drink.txt", "r");
-//		while (i < food.size()) {
-//			int sizeName = food[i].getName().size();
-//			char name[20];
-//			fgets(name, sizeName + 2, readFile);
-//			printf("%s", name);
-//
-//			i++;
-//		}
-//	}
-//	else if (food[0].getName() == "박력분") {
-//		FILE* readFile = fopen("other.txt", "r");
-//		while (i < food.size()) {
-//			int sizeName = food[i].getName().size();
-//			char name[20];
-//			fgets(name, sizeName + 2, readFile); // \n 의 크기는 2
-//			printf("%s", name);
-//
-//			i++;
-//		}
-//	}
-//	cout << endl;
-//	return;
-//}
 
 void init(vector<Food>& food, string s) { //s에 맞는 식재료 목록으로 초기화함 ex) init(food, "육류") ---> meat.txt에 작성된 식재료들로 food 벡터가 초기화됨.
 	food.clear();
@@ -685,7 +548,7 @@ void init(vector<Food>& food, string s) { //s에 맞는 식재료 목록으로 초기화함 ex
 				food.push_back(new_food);
 			}
 		}
-			fclose(readFile);
+		fclose(readFile);
 	}
 
 	if (s == "상온") { // room
@@ -743,6 +606,7 @@ void init(vector<Food>& food, string s) { //s에 맞는 식재료 목록으로 초기화함 ex
 			}
 			
 		}
+		
 		fclose(readFile);
 	}
 }
