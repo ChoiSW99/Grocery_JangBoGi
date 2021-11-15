@@ -37,7 +37,7 @@ int main()
 		int menucode = menudraw();
 		if (menucode == 0)
 		{
-			system(" mode  con lines=26   cols=70 ");
+			system(" mode  con lines=28   cols=70 ");
 			ref->setPosition("fridge");
 			
 			while (1) {
@@ -68,7 +68,7 @@ int main()
 				init(other, "±âÅ¸");
 				ref->show_ingredient(meat, fish, veget, sauce, drink, other);
 				if (ref->getKey(meat, fish, veget, sauce, drink, other, refrigeration, freeze, room) == true) {
-					Sleep(500);
+					Sleep(100);
 					system("cls");
 				}
 				else {
