@@ -74,9 +74,9 @@ bool refrigerator::getKey(vector<Food> meat, vector<Food> fish, vector<Food> veg
 					{
 						FILE* writeFile = fopen("refrigeration.txt", "a");
 						fprintf(writeFile, "\n");
-						fprintf(writeFile, meat[cursor].getName().c_str());
+						fprintf(writeFile, meat[cursor + excess_mt].getName().c_str());
 						fprintf(writeFile, " ");
-						fprintf(writeFile, meat[cursor].getRecipe1().c_str());
+						fprintf(writeFile, meat[cursor + excess_mt].getRecipe1().c_str());
 						fprintf(writeFile, " ");
 						fprintf(writeFile, to_string(y).c_str()); // 재료 1 2 3 2000
 						fprintf(writeFile, " ");// 재료 1 2 3 2000 
@@ -100,9 +100,9 @@ bool refrigerator::getKey(vector<Food> meat, vector<Food> fish, vector<Food> veg
 					{
 						FILE* writeFile = fopen("freeze.txt", "a");
 						fprintf(writeFile, "\n");
-						fprintf(writeFile, meat[cursor].getName().c_str());
+						fprintf(writeFile, meat[cursor + excess_mt].getName().c_str());
 						fprintf(writeFile, " ");
-						fprintf(writeFile, meat[cursor].getRecipe1().c_str());
+						fprintf(writeFile, meat[cursor + excess_mt].getRecipe1().c_str());
 						fprintf(writeFile, " ");
 						fprintf(writeFile, to_string(y).c_str()); // 재료 1 2 3 2000
 						fprintf(writeFile, " ");// 재료 1 2 3 2000 
@@ -125,9 +125,9 @@ bool refrigerator::getKey(vector<Food> meat, vector<Food> fish, vector<Food> veg
 					{
 						FILE* writeFile = fopen("room.txt", "a");
 						fprintf(writeFile, "\n");
-						fprintf(writeFile, meat[cursor].getName().c_str());
+						fprintf(writeFile, meat[cursor + excess_mt].getName().c_str());
 						fprintf(writeFile, " ");
-						fprintf(writeFile, meat[cursor].getRecipe1().c_str());
+						fprintf(writeFile, meat[cursor + excess_mt].getRecipe1().c_str());
 						fprintf(writeFile, " ");
 						fprintf(writeFile, to_string(y).c_str()); // 재료 1 2 3 2000
 						fprintf(writeFile, " ");// 재료 1 2 3 2000 
@@ -164,9 +164,9 @@ bool refrigerator::getKey(vector<Food> meat, vector<Food> fish, vector<Food> veg
 					{
 						FILE* writeFile = fopen("refrigeration.txt", "a");
 						fprintf(writeFile, "\n");
-						fprintf(writeFile, fish[cursor].getName().c_str());
+						fprintf(writeFile, fish[cursor + excess_fs].getName().c_str());
 						fprintf(writeFile, " ");
-						fprintf(writeFile, fish[cursor].getRecipe1().c_str());
+						fprintf(writeFile, fish[cursor + excess_fs].getRecipe1().c_str());
 						fprintf(writeFile, " ");
 						fprintf(writeFile, to_string(y).c_str()); // 재료 1 2 3 2000
 						fprintf(writeFile, " ");// 재료 1 2 3 2000 
@@ -190,9 +190,9 @@ bool refrigerator::getKey(vector<Food> meat, vector<Food> fish, vector<Food> veg
 					{
 						FILE* writeFile = fopen("freeze.txt", "a");
 						fprintf(writeFile, "\n");
-						fprintf(writeFile, fish[cursor].getName().c_str());
+						fprintf(writeFile, fish[cursor + excess_fs].getName().c_str());
 						fprintf(writeFile, " ");
-						fprintf(writeFile, fish[cursor].getRecipe1().c_str());
+						fprintf(writeFile, fish[cursor + excess_fs].getRecipe1().c_str());
 						fprintf(writeFile, " ");
 						fprintf(writeFile, to_string(y).c_str()); // 재료 1 2 3 2000
 						fprintf(writeFile, " ");// 재료 1 2 3 2000 
@@ -215,9 +215,9 @@ bool refrigerator::getKey(vector<Food> meat, vector<Food> fish, vector<Food> veg
 					{
 						FILE* writeFile = fopen("room.txt", "a");
 						fprintf(writeFile, "\n");
-						fprintf(writeFile, fish[cursor].getName().c_str());
+						fprintf(writeFile, fish[cursor + excess_fs].getName().c_str());
 						fprintf(writeFile, " ");
-						fprintf(writeFile, fish[cursor].getRecipe1().c_str());
+						fprintf(writeFile, fish[cursor + excess_fs].getRecipe1().c_str());
 						fprintf(writeFile, " ");
 						fprintf(writeFile, to_string(y).c_str()); // 재료 1 2 3 2000
 						fprintf(writeFile, " ");// 재료 1 2 3 2000 
@@ -254,7 +254,7 @@ bool refrigerator::getKey(vector<Food> meat, vector<Food> fish, vector<Food> veg
 					{
 						FILE* writeFile = fopen("refrigeration.txt", "a");
 						fprintf(writeFile, "\n");
-						fprintf(writeFile, veget[cursor].getName().c_str());
+						fprintf(writeFile, veget[cursor + excess_vt].getName().c_str());
 						fprintf(writeFile, " ");
 						fprintf(writeFile, "x x x");
 						fprintf(writeFile, " ");
@@ -280,7 +280,7 @@ bool refrigerator::getKey(vector<Food> meat, vector<Food> fish, vector<Food> veg
 					{
 						FILE* writeFile = fopen("freeze.txt", "a");
 						fprintf(writeFile, "\n");
-						fprintf(writeFile, veget[cursor].getName().c_str());
+						fprintf(writeFile, veget[cursor + excess_vt].getName().c_str());
 						fprintf(writeFile, " ");
 						fprintf(writeFile, "x x x");
 						fprintf(writeFile, " ");
@@ -305,7 +305,7 @@ bool refrigerator::getKey(vector<Food> meat, vector<Food> fish, vector<Food> veg
 					{
 						FILE* writeFile = fopen("room.txt", "a");
 						fprintf(writeFile, "\n");
-						fprintf(writeFile, veget[cursor].getName().c_str());
+						fprintf(writeFile, veget[cursor + excess_vt].getName().c_str());
 						fprintf(writeFile, " ");
 						fprintf(writeFile, "x x x");
 						fprintf(writeFile, " ");
@@ -343,7 +343,7 @@ bool refrigerator::getKey(vector<Food> meat, vector<Food> fish, vector<Food> veg
 					{
 						FILE* writeFile = fopen("refrigeration.txt", "a");
 						fprintf(writeFile, "\n");
-						fprintf(writeFile, drink[cursor].getName().c_str());
+						fprintf(writeFile, drink[cursor + excess_dk].getName().c_str());
 						fprintf(writeFile, " ");
 						fprintf(writeFile, "x x x");
 						fprintf(writeFile, " ");
@@ -369,7 +369,7 @@ bool refrigerator::getKey(vector<Food> meat, vector<Food> fish, vector<Food> veg
 					{
 						FILE* writeFile = fopen("freeze.txt", "a");
 						fprintf(writeFile, "\n");
-						fprintf(writeFile, drink[cursor].getName().c_str());
+						fprintf(writeFile, drink[cursor + excess_dk].getName().c_str());
 						fprintf(writeFile, " ");
 						fprintf(writeFile, "x x x");
 						fprintf(writeFile, " ");
@@ -394,7 +394,7 @@ bool refrigerator::getKey(vector<Food> meat, vector<Food> fish, vector<Food> veg
 					{
 						FILE* writeFile = fopen("room.txt", "a");
 						fprintf(writeFile, "\n");
-						fprintf(writeFile, drink[cursor].getName().c_str());
+						fprintf(writeFile, drink[cursor + excess_dk].getName().c_str());
 						fprintf(writeFile, " ");
 						fprintf(writeFile, "x x x");
 						fprintf(writeFile, " ");
@@ -432,7 +432,7 @@ bool refrigerator::getKey(vector<Food> meat, vector<Food> fish, vector<Food> veg
 					{
 						FILE* writeFile = fopen("refrigeration.txt", "a");
 						fprintf(writeFile, "\n");
-						fprintf(writeFile, sauce[cursor].getName().c_str());
+						fprintf(writeFile, sauce[cursor + excess_sc].getName().c_str());
 						fprintf(writeFile, " ");
 						fprintf(writeFile, "x x x");
 						fprintf(writeFile, " ");
@@ -457,7 +457,7 @@ bool refrigerator::getKey(vector<Food> meat, vector<Food> fish, vector<Food> veg
 					{
 						FILE* writeFile = fopen("freeze.txt", "a");
 						fprintf(writeFile, "\n");
-						fprintf(writeFile, sauce[cursor].getName().c_str());
+						fprintf(writeFile, sauce[cursor + excess_sc].getName().c_str());
 						fprintf(writeFile, " ");
 						fprintf(writeFile, "x x x");
 						fprintf(writeFile, " ");
@@ -482,7 +482,7 @@ bool refrigerator::getKey(vector<Food> meat, vector<Food> fish, vector<Food> veg
 					{
 						FILE* writeFile = fopen("room.txt", "a");
 						fprintf(writeFile, "\n");
-						fprintf(writeFile, sauce[cursor].getName().c_str());
+						fprintf(writeFile, sauce[cursor + excess_sc].getName().c_str());
 						fprintf(writeFile, " ");
 						fprintf(writeFile, "x x x");
 						fprintf(writeFile, " ");
@@ -520,7 +520,7 @@ bool refrigerator::getKey(vector<Food> meat, vector<Food> fish, vector<Food> veg
 					{
 						FILE* writeFile = fopen("refrigeration.txt", "a");
 						fprintf(writeFile, "\n");
-						fprintf(writeFile, other[cursor].getName().c_str());
+						fprintf(writeFile, other[cursor + excess_ot].getName().c_str());
 						fprintf(writeFile, " ");
 						fprintf(writeFile, "x x x");
 						fprintf(writeFile, " ");
@@ -546,7 +546,7 @@ bool refrigerator::getKey(vector<Food> meat, vector<Food> fish, vector<Food> veg
 					{
 						FILE* writeFile = fopen("freeze.txt", "a");
 						fprintf(writeFile, "\n");
-						fprintf(writeFile, other[cursor].getName().c_str());
+						fprintf(writeFile, other[cursor + excess_ot].getName().c_str());
 						fprintf(writeFile, " ");
 						fprintf(writeFile, "x x x");
 						fprintf(writeFile, " ");
@@ -571,7 +571,7 @@ bool refrigerator::getKey(vector<Food> meat, vector<Food> fish, vector<Food> veg
 					{
 						FILE* writeFile = fopen("room.txt", "a");
 						fprintf(writeFile, "\n");
-						fprintf(writeFile, other[cursor].getName().c_str());
+						fprintf(writeFile, other[cursor + excess_ot].getName().c_str());
 						fprintf(writeFile, " ");
 						fprintf(writeFile, "x x x");
 						fprintf(writeFile, " ");
@@ -905,7 +905,7 @@ void refrigerator::show_inventory(vector<Food> refrigeration, vector<Food> freez
 				cout << "|" << left << setw(20) << "" << "|" << endl;
 			}
 			else {
-				cout << "|" << left << setw(3) << i + excess_ro << left << setw(17) << room[i + excess_ro].getName();
+				cout << "|" << left << setw(3) << i + excess_ro << left << setw(17) << room[i + excess_ro].getName() << "|" << endl;
 			}
 		}
 	}
