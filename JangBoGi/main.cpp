@@ -8,6 +8,7 @@
 int main()
 {
 	refrigerator* ref = new refrigerator("NULL", 0);
+	
 	vector<Food> meat;
 	init(meat, "À°·ù");
 	vector<Food> fish;
@@ -27,7 +28,7 @@ int main()
 	init(freeze, "³Ãµ¿");
 	vector<Food> room;
 	init(room, "»ó¿Â");
-
+	
 	while (1)
 	{
 		system(" mode  con lines=25   cols=105 ");
@@ -96,5 +97,5 @@ int main()
 		}
 		
 	}
-	return 0;
+	system("pause");
 }

@@ -303,9 +303,9 @@ void init(vector<Food>& food, string s) { //s에 맞는 식재료 목록으로 초기화함 ex
 	food.clear();
 	if (s == "육류") {
 		FILE* readFile = NULL;
-		readFile = fopen("meat.txt", "r");
+		fopen_s(&readFile, "meat.txt", "r"); //readFile = fopen("meat.txt", "r"); 
 		if (readFile != NULL) {
-			char buf[1024];
+			char buf[1024]; 
 			while (!feof(readFile)) {
 				fgets(buf, sizeof(buf), readFile);
 
@@ -331,11 +331,11 @@ void init(vector<Food>& food, string s) { //s에 맞는 식재료 목록으로 초기화함 ex
 				
 			}
 		}
-		fclose(readFile);
+		fcloseall();
 	}
 	if (s == "어류") {
 		FILE* readFile = NULL;
-		readFile = fopen("fish.txt", "r");
+		fopen_s(&readFile, "fish.txt", "r");
 		if (readFile != NULL) {
 			char buf[1024];
 			while (!feof(readFile)) {
@@ -359,11 +359,12 @@ void init(vector<Food>& food, string s) { //s에 맞는 식재료 목록으로 초기화함 ex
 				
 			}
 		}
-		fclose(readFile);
+		fcloseall();
 	}
 	if (s == "채소") {
 		FILE* readFile = NULL;
-		readFile = fopen("veget.txt", "r");
+		fopen_s(&readFile, "veget.txt", "r");
+
 		if (readFile != NULL) {
 			char buf[1024];
 			while (!feof(readFile)) {
@@ -378,11 +379,11 @@ void init(vector<Food>& food, string s) { //s에 맞는 식재료 목록으로 초기화함 ex
 				
 			}
 		}
-		fclose(readFile);
+		fcloseall();
 	}
 	if (s == "소스") {
 		FILE* readFile = NULL;
-		readFile = fopen("sauce.txt", "r");
+		fopen_s(&readFile, "sauce.txt", "r");
 		if (readFile != NULL) {
 			char buf[1024];
 			while (!feof(readFile)) {
@@ -397,11 +398,11 @@ void init(vector<Food>& food, string s) { //s에 맞는 식재료 목록으로 초기화함 ex
 				
 			}
 		}
-		fclose(readFile);
+		fcloseall();
 	}
 	if (s == "음료") {
 		FILE* readFile = NULL;
-		readFile = fopen("drink.txt", "r");
+		fopen_s(&readFile, "drink.txt", "r");
 		if (readFile != NULL) {
 			char buf[1024];
 			while (!feof(readFile)) {
@@ -416,11 +417,11 @@ void init(vector<Food>& food, string s) { //s에 맞는 식재료 목록으로 초기화함 ex
 				
 			}
 		}
-		fclose(readFile);
+		fcloseall();
 	}
 	if (s == "기타") {
 		FILE* readFile = NULL;
-		readFile = fopen("other.txt", "r");
+		fopen_s(&readFile, "other.txt", "r");
 		if (readFile != NULL) {
 			char buf[1024];
 			while (!feof(readFile)) {
@@ -435,13 +436,13 @@ void init(vector<Food>& food, string s) { //s에 맞는 식재료 목록으로 초기화함 ex
 				
 			}
 		}
-		fclose(readFile);
+		fcloseall();
 	}
 
 	// 냉장, 냉동, 상온 현황에 보이기 위해 추가
 	if (s == "냉장") { // refrigeration
 		FILE* readFile = NULL;
-		readFile = fopen("refrigeration.txt", "r");
+		fopen_s(&readFile, "refrigeration.txt", "r");
 		if (readFile != NULL) {
 
 			char buf[1024];
@@ -492,12 +493,12 @@ void init(vector<Food>& food, string s) { //s에 맞는 식재료 목록으로 초기화함 ex
 				food.push_back(new_food);
 			}
 		}
-		fclose(readFile);
+		fcloseall();
 	}
 
 	if (s == "냉동") { // freeze
 		FILE* readFile = NULL;
-		readFile = fopen("freeze.txt", "r");
+		fopen_s(&readFile, "freeze.txt", "r");
 		if (readFile != NULL) {
 
 			char buf[1024];
@@ -548,12 +549,12 @@ void init(vector<Food>& food, string s) { //s에 맞는 식재료 목록으로 초기화함 ex
 				food.push_back(new_food);
 			}
 		}
-		fclose(readFile);
+		fcloseall();
 	}
 
 	if (s == "상온") { // room
 		FILE* readFile = NULL;
-		readFile = fopen("room.txt", "r");
+		fopen_s(&readFile, "room.txt", "r");		
 		if (readFile != NULL) {
 
 			char buf[1024];
@@ -607,6 +608,6 @@ void init(vector<Food>& food, string s) { //s에 맞는 식재료 목록으로 초기화함 ex
 			
 		}
 		
-		fclose(readFile);
+		fcloseall();
 	}
 }
