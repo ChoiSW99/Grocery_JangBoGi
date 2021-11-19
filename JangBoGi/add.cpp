@@ -13,7 +13,7 @@ bool add()
 	if (a == "x" || a == "X") { 
 		return false;
 	}
-	cout << "추가할 재료의 종류를 입력해주세요 ( 1:고기 2:생선 3:채소 4:음료 5:소스 6:그 외): ";
+	cout << "추가할 재료의 종류를 입력해주세요 ( 1:고기 2:생선 3:채소 4:소스 5:음료 6:그 외): ";
 	cin >> i;
 	
 	if (cin.fail())                                                                                   
@@ -108,9 +108,9 @@ bool add()
 	}
 	else if (i == 4)
 	{
-		if (!(isexist_drink(a)))
+		if (!(isexist_sauce(a)))
 		{
-			FILE* writeFile = fopen("drink.txt", "a");
+			FILE* writeFile = fopen("sauce.txt", "a");
 			fprintf(writeFile, "\n");
 			fprintf(writeFile, a.c_str());
 			fclose(writeFile);
@@ -127,9 +127,9 @@ bool add()
 	}
 	else if (i == 5)
 	{
-		if (!(isexist_sauce(a)))
+		if (!(isexist_drink(a)))
 		{
-			FILE* writeFile = fopen("sauce.txt", "a");
+			FILE* writeFile = fopen("drink.txt", "a");
 			fprintf(writeFile, "\n");
 			fprintf(writeFile, a.c_str());
 			fclose(writeFile);

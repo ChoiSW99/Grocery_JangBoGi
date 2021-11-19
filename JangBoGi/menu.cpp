@@ -91,7 +91,7 @@ bool refrigerator::getKey(vector<Food> meat, vector<Food> fish, vector<Food> veg
 					cin.ignore(10, '\n');
 					return true;
 				}
-				if (y <= 2020 || m <= 0 || d <= 0) {
+				if (y <= 2020 || m<=0 || m>12 || d <= 0 || d>31) {
 					cout << "잘못된 입력입니다.";
 					return true;
 				}
@@ -225,7 +225,7 @@ bool refrigerator::getKey(vector<Food> meat, vector<Food> fish, vector<Food> veg
 					cin.ignore(10, '\n');
 					return true;
 				}
-				if (y <= 2020 || m <= 0 || d <= 0) {
+				if (y <= 2020 || m <= 0 || m > 12 || d <= 0 || d > 31) {
 					cout << "잘못된 입력입니다.";
 					return true;
 				}
@@ -358,7 +358,7 @@ bool refrigerator::getKey(vector<Food> meat, vector<Food> fish, vector<Food> veg
 					cin.ignore(10, '\n');
 					return true;
 				}
-				if (y <= 2020 || m <= 0 || d <= 0) {
+				if (y <= 2020 || m <= 0 || m > 12 || d <= 0 || d > 31) {
 					cout << "잘못된 입력입니다.";
 					return true;
 				}
@@ -490,7 +490,7 @@ bool refrigerator::getKey(vector<Food> meat, vector<Food> fish, vector<Food> veg
 					cin.ignore(10, '\n');
 					return true;
 				}
-				if (y <= 2020 || m <= 0 || d <= 0) {
+				if (y <= 2020 || m <= 0 || m > 12 || d <= 0 || d > 31) {
 					cout << "잘못된 입력입니다.";
 					return true;
 				}
@@ -622,7 +622,7 @@ bool refrigerator::getKey(vector<Food> meat, vector<Food> fish, vector<Food> veg
 					cin.ignore(10, '\n');
 					return true;
 				}
-				if (y <= 2020 || m <= 0 || d <= 0) {
+				if (y <= 2020 || m <= 0 || m > 12 || d <= 0 || d > 31) {
 					cout << "잘못된 입력입니다.";
 					return true;
 				}
@@ -745,7 +745,7 @@ bool refrigerator::getKey(vector<Food> meat, vector<Food> fish, vector<Food> veg
 					cin.ignore(10, '\n');
 					return true;
 				}
-				if (y <= 2020 || m <= 0 || d <= 0) {
+				if (y <= 2020 || m <= 0 || m > 12 || d <= 0 || d > 31) {
 					cout << "잘못된 입력입니다.";
 					return true;
 				}
