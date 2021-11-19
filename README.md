@@ -18,3 +18,4 @@
 + 삭제    D키
 
 ## 화면 설명
+![녹화_2021_11_19_22_19_31_757](https://user-images.githubusercontent.com/84121891/142629560-f068b194-0788-438e-ae1f-3945899defda.gif)
