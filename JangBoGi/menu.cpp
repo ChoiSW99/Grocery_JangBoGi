@@ -70,7 +70,7 @@ bool refrigerator::getKey(vector<Food> meat, vector<Food> fish, vector<Food> veg
 
 				if (i == 1)
 				{
-					if (!isexist_refri(meat[cursor].getName()))
+					if (!isexist_refri(meat[cursor + excess_mt].getName()))
 					{
 						FILE* writeFile = fopen("refrigeration.txt", "a");
 						fprintf(writeFile, "\n");
@@ -96,7 +96,7 @@ bool refrigerator::getKey(vector<Food> meat, vector<Food> fish, vector<Food> veg
 				}
 				else if (i == 2)
 				{
-					if (!isexist_freeze(meat[cursor].getName()))
+					if (!isexist_freeze(meat[cursor + excess_mt].getName()))
 					{
 						FILE* writeFile = fopen("freeze.txt", "a");
 						fprintf(writeFile, "\n");
@@ -121,7 +121,7 @@ bool refrigerator::getKey(vector<Food> meat, vector<Food> fish, vector<Food> veg
 				}
 				else if (i == 3)
 				{
-					if (!isexist_room(meat[cursor].getName()))
+					if (!isexist_room(meat[cursor + excess_mt].getName()))
 					{
 						FILE* writeFile = fopen("room.txt", "a");
 						fprintf(writeFile, "\n");
@@ -160,7 +160,7 @@ bool refrigerator::getKey(vector<Food> meat, vector<Food> fish, vector<Food> veg
 				cin >> y >> m >> d;
 				if (i == 1)
 				{
-					if (!isexist_refri(fish[cursor].getName()))
+					if (!isexist_refri(fish[cursor + excess_fs].getName()))
 					{
 						FILE* writeFile = fopen("refrigeration.txt", "a");
 						fprintf(writeFile, "\n");
@@ -186,7 +186,7 @@ bool refrigerator::getKey(vector<Food> meat, vector<Food> fish, vector<Food> veg
 				}
 				else if (i == 2)
 				{
-					if (!isexist_freeze(fish[cursor].getName()))
+					if (!isexist_freeze(fish[cursor + excess_fs].getName()))
 					{
 						FILE* writeFile = fopen("freeze.txt", "a");
 						fprintf(writeFile, "\n");
@@ -211,7 +211,7 @@ bool refrigerator::getKey(vector<Food> meat, vector<Food> fish, vector<Food> veg
 				}
 				else if (i == 3)
 				{
-					if (!isexist_room(fish[cursor].getName()))
+					if (!isexist_room(fish[cursor + excess_fs].getName()))
 					{
 						FILE* writeFile = fopen("room.txt", "a");
 						fprintf(writeFile, "\n");
@@ -250,7 +250,7 @@ bool refrigerator::getKey(vector<Food> meat, vector<Food> fish, vector<Food> veg
 				cin >> y >> m >> d;
 				if (i == 1)
 				{
-					if (!isexist_refri(veget[cursor].getName()))
+					if (!isexist_refri(veget[cursor + excess_vt].getName()))
 					{
 						FILE* writeFile = fopen("refrigeration.txt", "a");
 						fprintf(writeFile, "\n");
@@ -276,7 +276,7 @@ bool refrigerator::getKey(vector<Food> meat, vector<Food> fish, vector<Food> veg
 				}
 				else if (i == 2)
 				{
-					if (!isexist_freeze(veget[cursor].getName()))
+					if (!isexist_freeze(veget[cursor + excess_vt].getName()))
 					{
 						FILE* writeFile = fopen("freeze.txt", "a");
 						fprintf(writeFile, "\n");
@@ -301,7 +301,7 @@ bool refrigerator::getKey(vector<Food> meat, vector<Food> fish, vector<Food> veg
 				}
 				else if (i == 3)
 				{
-					if (!isexist_room(veget[cursor].getName()))
+					if (!isexist_room(veget[cursor + excess_vt].getName()))
 					{
 						FILE* writeFile = fopen("room.txt", "a");
 						fprintf(writeFile, "\n");
@@ -339,7 +339,7 @@ bool refrigerator::getKey(vector<Food> meat, vector<Food> fish, vector<Food> veg
 				cin >> y >> m >> d;
 				if (i == 1)
 				{
-					if (!isexist_refri(drink[cursor].getName()))
+					if (!isexist_refri(drink[cursor + excess_dk].getName()))
 					{
 						FILE* writeFile = fopen("refrigeration.txt", "a");
 						fprintf(writeFile, "\n");
@@ -365,7 +365,7 @@ bool refrigerator::getKey(vector<Food> meat, vector<Food> fish, vector<Food> veg
 				}
 				else if (i == 2)
 				{
-					if (!isexist_freeze(drink[cursor].getName()))
+					if (!isexist_freeze(drink[cursor + excess_dk].getName()))
 					{
 						FILE* writeFile = fopen("freeze.txt", "a");
 						fprintf(writeFile, "\n");
@@ -390,7 +390,7 @@ bool refrigerator::getKey(vector<Food> meat, vector<Food> fish, vector<Food> veg
 				}
 				else if (i == 3)
 				{
-					if (!isexist_room(drink[cursor].getName()))
+					if (!isexist_room(drink[cursor + excess_dk].getName()))
 					{
 						FILE* writeFile = fopen("room.txt", "a");
 						fprintf(writeFile, "\n");
@@ -428,7 +428,7 @@ bool refrigerator::getKey(vector<Food> meat, vector<Food> fish, vector<Food> veg
 				cin >> y >> m >> d;
 				if (i == 1)
 				{
-					if (!isexist_refri(sauce[cursor].getName()))
+					if (!isexist_refri(sauce[cursor + excess_sc].getName()))
 					{
 						FILE* writeFile = fopen("refrigeration.txt", "a");
 						fprintf(writeFile, "\n");
@@ -453,7 +453,7 @@ bool refrigerator::getKey(vector<Food> meat, vector<Food> fish, vector<Food> veg
 				}
 				else if (i == 2)
 				{
-					if (!isexist_freeze(sauce[cursor].getName()))
+					if (!isexist_freeze(sauce[cursor + excess_sc].getName()))
 					{
 						FILE* writeFile = fopen("freeze.txt", "a");
 						fprintf(writeFile, "\n");
@@ -478,7 +478,7 @@ bool refrigerator::getKey(vector<Food> meat, vector<Food> fish, vector<Food> veg
 				}
 				else if (i == 3)
 				{
-					if (!isexist_room(sauce[cursor].getName()))
+					if (!isexist_room(sauce[cursor + excess_sc].getName()))
 					{
 						FILE* writeFile = fopen("room.txt", "a");
 						fprintf(writeFile, "\n");
@@ -516,7 +516,7 @@ bool refrigerator::getKey(vector<Food> meat, vector<Food> fish, vector<Food> veg
 				cin >> y >> m >> d;
 				if (i == 1)
 				{
-					if (!isexist_refri(other[cursor].getName()))
+					if (!isexist_refri(other[cursor + excess_ot].getName()))
 					{
 						FILE* writeFile = fopen("refrigeration.txt", "a");
 						fprintf(writeFile, "\n");
@@ -542,7 +542,7 @@ bool refrigerator::getKey(vector<Food> meat, vector<Food> fish, vector<Food> veg
 				}
 				else if (i == 2)
 				{
-					if (!isexist_freeze(other[cursor].getName()))
+					if (!isexist_freeze(other[cursor + excess_ot].getName()))
 					{
 						FILE* writeFile = fopen("freeze.txt", "a");
 						fprintf(writeFile, "\n");
@@ -567,7 +567,7 @@ bool refrigerator::getKey(vector<Food> meat, vector<Food> fish, vector<Food> veg
 				}
 				else if (i == 3)
 				{
-					if (!isexist_room(other[cursor].getName()))
+					if (!isexist_room(other[cursor + excess_ot].getName()))
 					{
 						FILE* writeFile = fopen("room.txt", "a");
 						fprintf(writeFile, "\n");
