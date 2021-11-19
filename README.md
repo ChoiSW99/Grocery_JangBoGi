@@ -9,7 +9,7 @@
 5. 내 냉장고의 식재료를 삭제 할 수 있습니다.
 
 ## 사용 방법
-다운 받은 파일 내에 Grocery_JangBoGi/JangBoGi.exe를 실행합니다.
+다운 받은 파일 내에 Grocery_JangBoGi/x64/Release/JangBoGi.exe를 실행합니다.
 
 ## 조작법
 + 이동    방향키
