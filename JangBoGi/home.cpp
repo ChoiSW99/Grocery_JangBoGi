@@ -18,12 +18,14 @@ void title()
 	printf("		##    ## ##     ## ##   ### ##    ##  ##     ## ##     ## ##    ##   ##  \n");
 	printf("		 ######  ##     ## ##    ##  ######   ########   #######   ######   #### \n");
 	printf("\n");
-	gotoxy(17, 22);
+	gotoxy(8, 22);
 	printf("선택: 엔터");
-	gotoxy(47, 22);
+	gotoxy(33, 22);
 	printf("이동: 방향키");
-	gotoxy(77, 22);
+	gotoxy(63, 22);
 	printf("뒤로가기: X");
+	gotoxy(90, 22);
+	printf("삭제: D");
 }
 
 int menudraw()

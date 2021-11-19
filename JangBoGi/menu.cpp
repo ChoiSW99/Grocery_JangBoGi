@@ -52,21 +52,50 @@ bool refrigerator::getKey(vector<Food> meat, vector<Food> fish, vector<Food> veg
 			cursor = 0;
 			return false;
 		}
-		if (c == 13) {
+		if (c == 13&&cursor>0) {
 			if (position == "meat")
 			{
 				cout << "재료의 상태를 입력하세요: (1.냉장 2.냉동 3.상온) ";
 				cin >> i;
+				if (cin.fail())
+				{
+					cout << "잘못된 입력입니다.";
+					Sleep(1000);
+					cin.clear();
+					cin.ignore(10, '\n');
+					return true;
+				}
 				cout << "재료의 유통기한을 입력하세요(ex: 2022 03 01): ";
 				cin >> y >> m >> d;
-				while (1) {
-					if (y <= 2020 || m <= 0 || d <= 0) {
-						cout << "재료의 유통기한을 재입력하세요(ex: 2022 03 01): ";
-						cin >> y >> m >> d;
-					}
-					else
-						break;
+				if (cin.fail())
+				{
+					cout << "잘못된 입력입니다.";
+					Sleep(1000);
+					cin.clear();
+					cin.ignore(10, '\n');
+					return true;
 				}
+				if (cin.fail())
+				{
+					cout << "잘못된 입력입니다.";
+					Sleep(1000);
+					cin.clear();
+					cin.ignore(10, '\n');
+					return true;
+				}
+				if (cin.fail())
+				{
+					cout << "잘못된 입력입니다.";
+					Sleep(1000);
+					cin.clear();
+					cin.ignore(10, '\n');
+					return true;
+				}
+				if (y <= 2020 || m <= 0 || d <= 0) {
+					cout << "잘못된 입력입니다.";
+					return true;
+				}
+			
 
 				if (i == 1)
 				{
@@ -84,6 +113,8 @@ bool refrigerator::getKey(vector<Food> meat, vector<Food> fish, vector<Food> veg
 						fprintf(writeFile, " ");// 재료 1 2 3 2000 2 
 						fprintf(writeFile, to_string(d).c_str()); // 재료 1 2 3 2000 2 2 2
 						fclose(writeFile);
+						cout << "성공적으로 입력됐습니다.";
+						Sleep(1000);
 						return true;
 					}
 					else
@@ -110,6 +141,8 @@ bool refrigerator::getKey(vector<Food> meat, vector<Food> fish, vector<Food> veg
 						fprintf(writeFile, " ");// 재료 1 2 3 2000 2 
 						fprintf(writeFile, to_string(d).c_str()); // 재료 1 2 3 2000 2 2 2
 						fclose(writeFile);
+						cout << "성공적으로 입력됐습니다.";
+						Sleep(1000);
 						return true;
 					}
 					else
@@ -135,6 +168,8 @@ bool refrigerator::getKey(vector<Food> meat, vector<Food> fish, vector<Food> veg
 						fprintf(writeFile, " ");// 재료 1 2 3 2000 2 
 						fprintf(writeFile, to_string(d).c_str()); // 재료 1 2 3 2000 2 2 2
 						fclose(writeFile);
+						cout << "성공적으로 입력됐습니다.";
+						Sleep(1000);
 						return true;
 					}
 					else
@@ -156,8 +191,45 @@ bool refrigerator::getKey(vector<Food> meat, vector<Food> fish, vector<Food> veg
 			{
 				cout << "재료의 상태를 입력하세요: (1.냉장 2.냉동 3.상온) ";
 				cin >> i;
+				if (cin.fail())
+				{
+					cout << "잘못된 입력입니다.";
+					Sleep(1000);
+					cin.clear();
+					cin.ignore(10, '\n');
+					return true;
+				}
 				cout << "재료의 유통기한을 입력하세요(ex: 2022 03 01): ";
 				cin >> y >> m >> d;
+				if (cin.fail())
+				{
+					cout << "잘못된 입력입니다.";
+					Sleep(1000);
+					cin.clear();
+					cin.ignore(10, '\n');
+					return true;
+				}
+				if (cin.fail())
+				{
+					cout << "잘못된 입력입니다.";
+					Sleep(1000);
+					cin.clear();
+					cin.ignore(10, '\n');
+					return true;
+				}
+				if (cin.fail())
+				{
+					cout << "잘못된 입력입니다.";
+					Sleep(1000);
+					cin.clear();
+					cin.ignore(10, '\n');
+					return true;
+				}
+				if (y <= 2020 || m <= 0 || d <= 0) {
+					cout << "잘못된 입력입니다.";
+					return true;
+				}
+
 				if (i == 1)
 				{
 					if (!isexist_refri(fish[cursor + excess_fs].getName()))
@@ -174,6 +246,8 @@ bool refrigerator::getKey(vector<Food> meat, vector<Food> fish, vector<Food> veg
 						fprintf(writeFile, " ");// 재료 1 2 3 2000 2 
 						fprintf(writeFile, to_string(d).c_str()); // 재료 1 2 3 2000 2 2 2
 						fclose(writeFile);
+						cout << "성공적으로 입력됐습니다.";
+						Sleep(1000);
 						return true;
 					}
 					else
@@ -200,6 +274,8 @@ bool refrigerator::getKey(vector<Food> meat, vector<Food> fish, vector<Food> veg
 						fprintf(writeFile, " ");// 재료 1 2 3 2000 2 
 						fprintf(writeFile, to_string(d).c_str()); // 재료 1 2 3 2000 2 2 2
 						fclose(writeFile);
+						cout << "성공적으로 입력됐습니다.";
+						Sleep(1000);
 						return true;
 					}
 					else
@@ -225,6 +301,8 @@ bool refrigerator::getKey(vector<Food> meat, vector<Food> fish, vector<Food> veg
 						fprintf(writeFile, " ");// 재료 1 2 3 2000 2 
 						fprintf(writeFile, to_string(d).c_str()); // 재료 1 2 3 2000 2 2 2
 						fclose(writeFile);
+						cout << "성공적으로 입력됐습니다.";
+						Sleep(1000);
 						return true;
 					}
 					else
@@ -246,8 +324,45 @@ bool refrigerator::getKey(vector<Food> meat, vector<Food> fish, vector<Food> veg
 			{
 				cout << "재료의 상태를 입력하세요: (1.냉장 2.냉동 3.상온) ";
 				cin >> i;
+				if (cin.fail())
+				{
+					cout << "잘못된 입력입니다.";
+					Sleep(1000);
+					cin.clear();
+					cin.ignore(10, '\n');
+					return true;
+				}
 				cout << "재료의 유통기한을 입력하세요(ex: 2022 03 01): ";
 				cin >> y >> m >> d;
+				if (cin.fail())
+				{
+					cout << "잘못된 입력입니다.";
+					Sleep(1000);
+					cin.clear();
+					cin.ignore(10, '\n');
+					return true;
+				}
+				if (cin.fail())
+				{
+					cout << "잘못된 입력입니다.";
+					Sleep(1000);
+					cin.clear();
+					cin.ignore(10, '\n');
+					return true;
+				}
+				if (cin.fail())
+				{
+					cout << "잘못된 입력입니다.";
+					Sleep(1000);
+					cin.clear();
+					cin.ignore(10, '\n');
+					return true;
+				}
+				if (y <= 2020 || m <= 0 || d <= 0) {
+					cout << "잘못된 입력입니다.";
+					return true;
+				}
+
 				if (i == 1)
 				{
 					if (!isexist_refri(veget[cursor + excess_vt].getName()))
@@ -264,6 +379,8 @@ bool refrigerator::getKey(vector<Food> meat, vector<Food> fish, vector<Food> veg
 						fprintf(writeFile, " ");// 재료 1 2 3 2000 2 
 						fprintf(writeFile, to_string(d).c_str()); // 재료 1 2 3 2000 2 2 2
 						fclose(writeFile);
+						cout << "성공적으로 입력됐습니다.";
+						Sleep(1000);
 						return true;
 					}
 					else
@@ -290,6 +407,8 @@ bool refrigerator::getKey(vector<Food> meat, vector<Food> fish, vector<Food> veg
 						fprintf(writeFile, " ");// 재료 1 2 3 2000 2 
 						fprintf(writeFile, to_string(d).c_str()); // 재료 1 2 3 2000 2 2 2
 						fclose(writeFile);
+						cout << "성공적으로 입력됐습니다.";
+						Sleep(1000);
 						return true;
 					}
 					else
@@ -315,6 +434,8 @@ bool refrigerator::getKey(vector<Food> meat, vector<Food> fish, vector<Food> veg
 						fprintf(writeFile, " ");// 재료 1 2 3 2000 2 
 						fprintf(writeFile, to_string(d).c_str()); // 재료 1 2 3 2000 2 2 2
 						fclose(writeFile);
+						cout << "성공적으로 입력됐습니다.";
+						Sleep(1000);
 						return true;
 					}
 					else
@@ -335,8 +456,45 @@ bool refrigerator::getKey(vector<Food> meat, vector<Food> fish, vector<Food> veg
 			{
 				cout << "재료의 상태를 입력하세요: (1.냉장 2.냉동 3.상온) ";
 				cin >> i;
+				if (cin.fail())
+				{
+					cout << "잘못된 입력입니다.";
+					Sleep(1000);
+					cin.clear();
+					cin.ignore(10, '\n');
+					return true;
+				}
 				cout << "재료의 유통기한을 입력하세요(ex: 2022 03 01): ";
 				cin >> y >> m >> d;
+				if (cin.fail())
+				{
+					cout << "잘못된 입력입니다.";
+					Sleep(1000);
+					cin.clear();
+					cin.ignore(10, '\n');
+					return true;
+				}
+				if (cin.fail())
+				{
+					cout << "잘못된 입력입니다.";
+					Sleep(1000);
+					cin.clear();
+					cin.ignore(10, '\n');
+					return true;
+				}
+				if (cin.fail())
+				{
+					cout << "잘못된 입력입니다.";
+					Sleep(1000);
+					cin.clear();
+					cin.ignore(10, '\n');
+					return true;
+				}
+				if (y <= 2020 || m <= 0 || d <= 0) {
+					cout << "잘못된 입력입니다.";
+					return true;
+				}
+
 				if (i == 1)
 				{
 					if (!isexist_refri(drink[cursor + excess_dk].getName()))
@@ -353,6 +511,8 @@ bool refrigerator::getKey(vector<Food> meat, vector<Food> fish, vector<Food> veg
 						fprintf(writeFile, " ");// 재료 1 2 3 2000 2 
 						fprintf(writeFile, to_string(d).c_str()); // 재료 1 2 3 2000 2 2 2
 						fclose(writeFile);
+						cout << "성공적으로 입력됐습니다.";
+						Sleep(1000);
 						return true;
 					}
 					else
@@ -379,6 +539,8 @@ bool refrigerator::getKey(vector<Food> meat, vector<Food> fish, vector<Food> veg
 						fprintf(writeFile, " ");// 재료 1 2 3 2000 2 
 						fprintf(writeFile, to_string(d).c_str()); // 재료 1 2 3 2000 2 2 2
 						fclose(writeFile);
+						cout << "성공적으로 입력됐습니다.";
+						Sleep(1000);
 						return true;
 					}
 					else
@@ -404,6 +566,8 @@ bool refrigerator::getKey(vector<Food> meat, vector<Food> fish, vector<Food> veg
 						fprintf(writeFile, " ");// 재료 1 2 3 2000 2 
 						fprintf(writeFile, to_string(d).c_str()); // 재료 1 2 3 2000 2 2 2
 						fclose(writeFile);
+						cout << "성공적으로 입력됐습니다.";
+						Sleep(1000);
 						return true;
 					}
 					else
@@ -424,8 +588,45 @@ bool refrigerator::getKey(vector<Food> meat, vector<Food> fish, vector<Food> veg
 			{
 				cout << "재료의 상태를 입력하세요: (1.냉장 2.냉동 3.상온) ";
 				cin >> i;
+				if (cin.fail())
+				{
+					cout << "잘못된 입력입니다.";
+					Sleep(1000);
+					cin.clear();
+					cin.ignore(10, '\n');
+					return true;
+				}
 				cout << "재료의 유통기한을 입력하세요(ex: 2022 03 01): ";
 				cin >> y >> m >> d;
+				if (cin.fail())
+				{
+					cout << "잘못된 입력입니다.";
+					Sleep(1000);
+					cin.clear();
+					cin.ignore(10, '\n');
+					return true;
+				}
+				if (cin.fail())
+				{
+					cout << "잘못된 입력입니다.";
+					Sleep(1000);
+					cin.clear();
+					cin.ignore(10, '\n');
+					return true;
+				}
+				if (cin.fail())
+				{
+					cout << "잘못된 입력입니다.";
+					Sleep(1000);
+					cin.clear();
+					cin.ignore(10, '\n');
+					return true;
+				}
+				if (y <= 2020 || m <= 0 || d <= 0) {
+					cout << "잘못된 입력입니다.";
+					return true;
+				}
+
 				if (i == 1)
 				{
 					if (!isexist_refri(sauce[cursor + excess_sc].getName()))
@@ -442,6 +643,8 @@ bool refrigerator::getKey(vector<Food> meat, vector<Food> fish, vector<Food> veg
 						fprintf(writeFile, " ");// 재료 1 2 3 2000 2 
 						fprintf(writeFile, to_string(d).c_str()); // 재료 1 2 3 2000 2 2 2
 						fclose(writeFile);
+						cout << "성공적으로 입력됐습니다.";
+						Sleep(1000);
 						return true;
 					}
 					else
@@ -467,6 +670,8 @@ bool refrigerator::getKey(vector<Food> meat, vector<Food> fish, vector<Food> veg
 						fprintf(writeFile, " ");// 재료 1 2 3 2000 2 
 						fprintf(writeFile, to_string(d).c_str()); // 재료 1 2 3 2000 2 2 2
 						fclose(writeFile);
+						cout << "성공적으로 입력됐습니다.";
+						Sleep(1000);
 						return true;
 					}
 					else
@@ -492,6 +697,8 @@ bool refrigerator::getKey(vector<Food> meat, vector<Food> fish, vector<Food> veg
 						fprintf(writeFile, " ");// 재료 1 2 3 2000 2 
 						fprintf(writeFile, to_string(d).c_str()); // 재료 1 2 3 2000 2 2 2
 						fclose(writeFile);
+						cout << "성공적으로 입력됐습니다.";
+						Sleep(1000);
 						return true;
 					}
 					else
@@ -514,6 +721,35 @@ bool refrigerator::getKey(vector<Food> meat, vector<Food> fish, vector<Food> veg
 				cin >> i;
 				cout << "재료의 유통기한을 입력하세요(ex: 2022 03 01): ";
 				cin >> y >> m >> d;
+				if (cin.fail())
+				{
+					cout << "잘못된 입력입니다.";
+					Sleep(1000);
+					cin.clear();
+					cin.ignore(10, '\n');
+					return true;
+				}
+				if (cin.fail())
+				{
+					cout << "잘못된 입력입니다.";
+					Sleep(1000);
+					cin.clear();
+					cin.ignore(10, '\n');
+					return true;
+				}
+				if (cin.fail())
+				{
+					cout << "잘못된 입력입니다.";
+					Sleep(1000);
+					cin.clear();
+					cin.ignore(10, '\n');
+					return true;
+				}
+				if (y <= 2020 || m <= 0 || d <= 0) {
+					cout << "잘못된 입력입니다.";
+					return true;
+				}
+
 				if (i == 1)
 				{
 					if (!isexist_refri(other[cursor + excess_ot].getName()))
@@ -530,6 +766,8 @@ bool refrigerator::getKey(vector<Food> meat, vector<Food> fish, vector<Food> veg
 						fprintf(writeFile, " ");// 재료 1 2 3 2000 2 
 						fprintf(writeFile, to_string(d).c_str()); // 재료 1 2 3 2000 2 2 2
 						fclose(writeFile);
+						cout << "성공적으로 입력됐습니다.";
+						Sleep(1000);
 						return true;
 					}
 					else
@@ -556,6 +794,8 @@ bool refrigerator::getKey(vector<Food> meat, vector<Food> fish, vector<Food> veg
 						fprintf(writeFile, " ");// 재료 1 2 3 2000 2 
 						fprintf(writeFile, to_string(d).c_str()); // 재료 1 2 3 2000 2 2 2
 						fclose(writeFile);
+						cout << "성공적으로 입력됐습니다.";
+						Sleep(1000);
 						return true;
 					}
 					else
@@ -581,6 +821,8 @@ bool refrigerator::getKey(vector<Food> meat, vector<Food> fish, vector<Food> veg
 						fprintf(writeFile, " ");// 재료 1 2 3 2000 2 
 						fprintf(writeFile, to_string(d).c_str()); // 재료 1 2 3 2000 2 2 2
 						fclose(writeFile);
+						cout << "성공적으로 입력됐습니다.";
+						Sleep(1000);
 						return true;
 					}
 					else
@@ -787,24 +1029,24 @@ bool refrigerator::getKey(vector<Food> meat, vector<Food> fish, vector<Food> veg
 		}
 		if (c == 'd' || c == 'D') {
 			if (position == "meat")
-				deleteData(meat, cursor);
+				deleteData(meat, cursor + excess_mt);
 			else if (position == "fish")
-				deleteData(fish, cursor);
+				deleteData(fish, cursor + excess_fs);
 			else if (position == "veget")
-				deleteData(veget, cursor);
+				deleteData(veget, cursor + excess_vt);
 			else if (position == "sauce")
-				deleteData(sauce, cursor);
+				deleteData(sauce, cursor + excess_sc);
 			else if (position == "drink")
-				deleteData(drink, cursor);
+				deleteData(drink, cursor + excess_dk);
 			else if (position == "other")
-				deleteData(other, cursor);
+				deleteData(other, cursor + excess_ot);
 
 			else if (position == "fridge")
-				deleteData(refrigeration, cursor);
+				deleteData(refrigeration, cursor + excess_fr);
 			else if (position == "freezer")
-				deleteData(freeze, cursor);
+				deleteData(freeze, cursor + excess_fz);
 			else if (position == "room")
-				deleteData(room, cursor);
+				deleteData(room, cursor + excess_ro);
 			else
 				return true;
 			return true;
