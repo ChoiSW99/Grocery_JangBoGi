@@ -70,6 +70,12 @@ bool refrigerator::getKey(vector<Food> meat, vector<Food> fish, vector<Food> veg
 					cin.ignore(10, '\n');
 					return true;
 				}
+				if (i != 1 && i != 2 && i != 3)
+				{
+					cout << "잘못된 입력입니다.";
+					Sleep(1000);
+					return true;
+				}
 				cout << "재료의 유통기한을 입력하세요(ex: 2022 03 01): ";
 				cin >> y >> m >> d;
 				if (cin.fail())
@@ -204,12 +210,6 @@ bool refrigerator::getKey(vector<Food> meat, vector<Food> fish, vector<Food> veg
 						return true;
 					}
 				}
-				else
-				{
-					cout << "잘못된 상태입니다.";
-					Sleep(100);
-					return true;
-				}
 
 			}
 			else if (position == "fish")
@@ -222,6 +222,12 @@ bool refrigerator::getKey(vector<Food> meat, vector<Food> fish, vector<Food> veg
 					Sleep(1000);
 					cin.clear();
 					cin.ignore(10, '\n');
+					return true;
+				}
+				if (i != 1 && i != 2 && i != 3)
+				{
+					cout << "잘못된 입력입니다.";
+					Sleep(1000);
 					return true;
 				}
 				cout << "재료의 유통기한을 입력하세요(ex: 2022 03 01): ";
@@ -357,12 +363,6 @@ bool refrigerator::getKey(vector<Food> meat, vector<Food> fish, vector<Food> veg
 						return true;
 					}
 				}
-				else
-				{
-					cout << "잘못된 상태입니다.";
-					Sleep(100);
-					return true;
-				}
 
 			}
 			else if (position == "veget")
@@ -375,6 +375,12 @@ bool refrigerator::getKey(vector<Food> meat, vector<Food> fish, vector<Food> veg
 					Sleep(1000);
 					cin.clear();
 					cin.ignore(10, '\n');
+					return true;
+				}
+				if (i != 1 && i != 2 && i != 3)
+				{
+					cout << "잘못된 입력입니다.";
+					Sleep(1000);
 					return true;
 				}
 				cout << "재료의 유통기한을 입력하세요(ex: 2022 03 01): ";
@@ -510,12 +516,6 @@ bool refrigerator::getKey(vector<Food> meat, vector<Food> fish, vector<Food> veg
 						return true;
 					}
 				}
-				else
-				{
-					cout << "잘못된 상태입니다.";
-					Sleep(100);
-					return true;
-				}
 			}
 			else if (position == "drink")
 			{
@@ -527,6 +527,12 @@ bool refrigerator::getKey(vector<Food> meat, vector<Food> fish, vector<Food> veg
 					Sleep(1000);
 					cin.clear();
 					cin.ignore(10, '\n');
+					return true;
+				}
+				if (i != 1 && i != 2 && i != 3)
+				{
+					cout << "잘못된 입력입니다.";
+					Sleep(1000);
 					return true;
 				}
 				cout << "재료의 유통기한을 입력하세요(ex: 2022 03 01): ";
@@ -662,12 +668,6 @@ bool refrigerator::getKey(vector<Food> meat, vector<Food> fish, vector<Food> veg
 						return true;
 					}
 				}
-				else
-				{
-					cout << "잘못된 상태입니다.";
-					Sleep(100);
-					return true;
-				}
 			}
 			else if (position == "sauce")
 			{
@@ -679,6 +679,12 @@ bool refrigerator::getKey(vector<Food> meat, vector<Food> fish, vector<Food> veg
 					Sleep(1000);
 					cin.clear();
 					cin.ignore(10, '\n');
+					return true;
+				}
+				if (i != 1 && i != 2 && i != 3)
+				{
+					cout << "잘못된 입력입니다.";
+					Sleep(1000);
 					return true;
 				}
 				cout << "재료의 유통기한을 입력하세요(ex: 2022 03 01): ";
@@ -813,17 +819,25 @@ bool refrigerator::getKey(vector<Food> meat, vector<Food> fish, vector<Food> veg
 						return true;
 					}
 				}
-				else
-				{
-					cout << "잘못된 상태입니다.";
-					Sleep(100);
-					return true;
-				}
 			}
 			else if (position == "other")
 			{
 				cout << "재료의 상태를 입력하세요: (1.냉장 2.냉동 3.상온) ";
 				cin >> i;
+				if (cin.fail())
+				{
+					cout << "잘못된 입력입니다.";
+					Sleep(1000);
+					cin.clear();
+					cin.ignore(10, '\n');
+					return true;
+				}
+				if (i != 1 && i != 2 && i != 3)
+				{
+					cout << "잘못된 입력입니다.";
+					Sleep(1000);
+					return true;
+				}
 				cout << "재료의 유통기한을 입력하세요(ex: 2022 03 01): ";
 				cin >> y >> m >> d;
 				if (cin.fail())
@@ -956,12 +970,6 @@ bool refrigerator::getKey(vector<Food> meat, vector<Food> fish, vector<Food> veg
 						Sleep(100);
 						return true;
 					}
-				}
-				else
-				{
-					cout << "잘못된 상태입니다.";
-					Sleep(100);
-					return true;
 				}
 			}
 		}
@@ -1511,6 +1519,9 @@ void refrigerator::deleteData(vector<Food>& food, size_t index) //index는 cursor
 
 int refrigerator::checkDate(int year, int month, int day) {
 
+	if (month <= 0 || month>12)
+		return false;
+
 	if ((month % 2 == 1))  
 	{
 		if (month <= 7)
@@ -1537,4 +1548,6 @@ int refrigerator::checkDate(int year, int month, int day) {
 			if (day <= 0 || day > 31) return false;
 		}
 	}
+	return true;
+	
 }
