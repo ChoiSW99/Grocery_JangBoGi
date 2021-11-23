@@ -1153,44 +1153,44 @@ void refrigerator::show_inventory(vector<Food> refrigeration, vector<Food> freez
 	}
 	cout << "+==============================================================+\n";
 	for (int i = 1; i <= 20; i++) {
-		//cout << refrigeration.size(); ==> 1
-		if (position == "fridge" && cursor == i) {
-			if (i < refrigeration.size()) {
-				cout << refrigeration[cursor].getName() << "의 레시피는 ";
-				if (refrigeration[cursor].getRecipe() != "")
-					cout << refrigeration[cursor].getRecipe() << "입니다." << endl;
-				else
-					cout << "없습니다." << endl;
+      //cout << refrigeration.size(); ==> 1
+      if (position == "fridge" && cursor == i) {
+         if (i < refrigeration.size()) {
+            cout << refrigeration[cursor + excess_fr].getName() << "의 레시피는 ";
+            if (refrigeration[cursor + excess_fr].getRecipe() != "")
+               cout << refrigeration[cursor + excess_fr].getRecipe() << "입니다." << endl;
+            else
+               cout << "없습니다." << endl;
 
-				cout << "유통기한은 " << refrigeration[cursor].getFYear() << "년 " << refrigeration[cursor].getFMonth() << "월 " << refrigeration[cursor].getFDay() << "일" << "까지입니다." << " ";
-				refrigeration[cursor].showLeftDate();
-			}
-		}
-		else if (position == "freezer" && cursor == i) {
-			if (i < freeze.size()) {
-				cout << freeze[cursor].getName() << "의 레시피는 ";
-				if (freeze[cursor].getRecipe() != "")
-					cout << freeze[cursor].getRecipe() << "입니다." << endl;
-				else
-					cout << "없습니다." << endl;
+            cout << "유통기한은 " << refrigeration[cursor + excess_fr].getFYear() << "년 " << refrigeration[cursor].getFMonth() << "월 " << refrigeration[cursor].getFDay() << "일" << "까지입니다." << " ";
+            refrigeration[cursor].showLeftDate();
+         }
+      }
+      else if (position == "freezer" && cursor == i) {
+         if (i < freeze.size()) {
+            cout << freeze[cursor + excess_fz].getName() << "의 레시피는 ";
+            if (freeze[cursor + excess_fz].getRecipe() != "")
+               cout << freeze[cursor + excess_fz].getRecipe() << "입니다." << endl;
+            else
+               cout << "없습니다." << endl;
 
-				cout << "유통기한은 " << freeze[cursor].getFYear() << "년 " << freeze[cursor].getFMonth() << "월 " << freeze[cursor].getFDay() << "일" << "까지입니다." << " ";
-				freeze[cursor].showLeftDate();
-			}
-		}
-		else if (position == "room" && cursor == i) {
-			if (i < room.size()) {
-				cout << room[cursor].getName() << "의 레시피는 ";
-				if (room[cursor].getRecipe() != "")
-					cout << room[cursor].getRecipe() << "입니다." << endl;
-				else
-					cout << "없습니다." << endl;
+            cout << "유통기한은 " << freeze[cursor + excess_fz].getFYear() << "년 " << freeze[cursor].getFMonth() << "월 " << freeze[cursor].getFDay() << "일" << "까지입니다." << " ";
+            freeze[cursor + excess_fz].showLeftDate();
+         }
+      }
+      else if (position == "room" && cursor == i) {
+         if (i < room.size()) {
+            cout << room[cursor + excess_ro].getName() << "의 레시피는 ";
+            if (room[cursor + excess_ro].getRecipe() != "")
+               cout << room[cursor + excess_ro].getRecipe() << "입니다." << endl;
+            else
+               cout << "없습니다." << endl;
 
-				cout << "유통기한은 " << room[cursor].getFYear() << "년 " << room[cursor].getFMonth() << "월 " << room[cursor].getFDay() << "일" << "까지입니다." << " ";
-				room[cursor].showLeftDate();
-			}
-		}
-	}
+            cout << "유통기한은 " << room[cursor + excess_ro].getFYear() << "년 " << room[cursor].getFMonth() << "월 " << room[cursor].getFDay() << "일" << "까지입니다." << " ";
+            room[cursor + excess_ro].showLeftDate();
+         }
+      }
+   }
 }
 
 void refrigerator::show_ingredient(vector<Food> meat, vector<Food> fish, vector<Food> veget, vector<Food> sauce, vector<Food> drink, vector<Food> other) {

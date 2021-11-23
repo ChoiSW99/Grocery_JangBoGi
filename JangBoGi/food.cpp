@@ -124,6 +124,8 @@ void Food::showLeftDate() {
 
 //파일에 미리 입력된 데이터 외에 추가할 때 사용됨.
 void writeInFile(vector<Food>& food) { // txt파일들에 식재료들 write
+	if (food.empty())
+		return;
 	if (food[0].getName() == "육류") {
 		FILE* writeFile = fopen("meat.txt", "w");
 		int i = 0, j = 1;
