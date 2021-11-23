@@ -46,6 +46,11 @@ bool refrigerator::getKey(vector<Food> meat, vector<Food> fish, vector<Food> veg
 	char c; // 키 입력
 	int i; // 재료 상태(냉장, 냉동, 상온)
 	int y = 0, m = 0, d = 0;
+	time_t timer;
+	struct tm* t;
+	timer = time(NULL); 
+	t = localtime(&timer);
+	bool result;
 	if (_kbhit()) {
 		c = _getch();
 		if (c == 88 || c == 120) {
@@ -91,9 +96,29 @@ bool refrigerator::getKey(vector<Food> meat, vector<Food> fish, vector<Food> veg
 					cin.ignore(10, '\n');
 					return true;
 				}
-				if (y <= 2020 || m<=0 || m>12 || d <= 0 || d>31) {
+				result = checkDate(y, m, d);
+				if (result==false|| t->tm_year + 1900>y) {
 					cout << "잘못된 입력입니다.";
+					Sleep(1000);
 					return true;
+				}
+				if (t->tm_year + 1900 == y)
+				{
+					if (t->tm_mon+1 > m)
+					{
+						cout << "잘못된 입력입니다.";
+						Sleep(1000);
+						return true;
+					}
+				}
+				if (t->tm_year + 1900 == y && t->tm_mon + 1 == m)
+				{
+					if (t->tm_mday >= d)
+					{
+						cout << "잘못된 입력입니다.";
+						Sleep(1000);
+						return true;
+					}
 				}
 			
 
@@ -225,9 +250,29 @@ bool refrigerator::getKey(vector<Food> meat, vector<Food> fish, vector<Food> veg
 					cin.ignore(10, '\n');
 					return true;
 				}
-				if (y <= 2020 || m <= 0 || m > 12 || d <= 0 || d > 31) {
+				result = checkDate(y, m, d);
+				if (result == false || t->tm_year + 1900 > y) {
 					cout << "잘못된 입력입니다.";
+					Sleep(1000);
 					return true;
+				}
+				if (t->tm_year + 1900 == y)
+				{
+					if (t->tm_mon + 1 > m)
+					{
+						cout << "잘못된 입력입니다.";
+						Sleep(1000);
+						return true;
+					}
+				}
+				if (t->tm_year + 1900 == y && t->tm_mon + 1 == m)
+				{
+					if (t->tm_mday >= d)
+					{
+						cout << "잘못된 입력입니다.";
+						Sleep(1000);
+						return true;
+					}
 				}
 
 				if (i == 1)
@@ -358,9 +403,29 @@ bool refrigerator::getKey(vector<Food> meat, vector<Food> fish, vector<Food> veg
 					cin.ignore(10, '\n');
 					return true;
 				}
-				if (y <= 2020 || m <= 0 || m > 12 || d <= 0 || d > 31) {
+				result = checkDate(y, m, d);
+				if (result == false || t->tm_year + 1900 > y) {
 					cout << "잘못된 입력입니다.";
+					Sleep(1000);
 					return true;
+				}
+				if (t->tm_year + 1900 == y)
+				{
+					if (t->tm_mon + 1 > m)
+					{
+						cout << "잘못된 입력입니다.";
+						Sleep(1000);
+						return true;
+					}
+				}
+				if (t->tm_year + 1900 == y && t->tm_mon + 1 == m)
+				{
+					if (t->tm_mday >= d)
+					{
+						cout << "잘못된 입력입니다.";
+						Sleep(1000);
+						return true;
+					}
 				}
 
 				if (i == 1)
@@ -490,9 +555,29 @@ bool refrigerator::getKey(vector<Food> meat, vector<Food> fish, vector<Food> veg
 					cin.ignore(10, '\n');
 					return true;
 				}
-				if (y <= 2020 || m <= 0 || m > 12 || d <= 0 || d > 31) {
+				result = checkDate(y, m, d);
+				if (result == false || t->tm_year + 1900 > y) {
 					cout << "잘못된 입력입니다.";
+					Sleep(1000);
 					return true;
+				}
+				if (t->tm_year + 1900 == y)
+				{
+					if (t->tm_mon + 1 > m)
+					{
+						cout << "잘못된 입력입니다.";
+						Sleep(1000);
+						return true;
+					}
+				}
+				if (t->tm_year + 1900 == y && t->tm_mon + 1 == m)
+				{
+					if (t->tm_mday >= d)
+					{
+						cout << "잘못된 입력입니다.";
+						Sleep(1000);
+						return true;
+					}
 				}
 
 				if (i == 1)
@@ -622,9 +707,29 @@ bool refrigerator::getKey(vector<Food> meat, vector<Food> fish, vector<Food> veg
 					cin.ignore(10, '\n');
 					return true;
 				}
-				if (y <= 2020 || m <= 0 || m > 12 || d <= 0 || d > 31) {
+				result = checkDate(y, m, d);
+				if (result == false || t->tm_year + 1900 > y) {
 					cout << "잘못된 입력입니다.";
+					Sleep(1000);
 					return true;
+				}
+				if (t->tm_year + 1900 == y)
+				{
+					if (t->tm_mon + 1 > m)
+					{
+						cout << "잘못된 입력입니다.";
+						Sleep(1000);
+						return true;
+					}
+				}
+				if (t->tm_year + 1900 == y && t->tm_mon + 1 == m)
+				{
+					if (t->tm_mday >= d)
+					{
+						cout << "잘못된 입력입니다.";
+						Sleep(1000);
+						return true;
+					}
 				}
 
 				if (i == 1)
@@ -745,9 +850,29 @@ bool refrigerator::getKey(vector<Food> meat, vector<Food> fish, vector<Food> veg
 					cin.ignore(10, '\n');
 					return true;
 				}
-				if (y <= 2020 || m <= 0 || m > 12 || d <= 0 || d > 31) {
+				result = checkDate(y, m, d);
+				if (result == false || t->tm_year + 1900 > y) {
 					cout << "잘못된 입력입니다.";
+					Sleep(1000);
 					return true;
+				}
+				if (t->tm_year + 1900 == y)
+				{
+					if (t->tm_mon + 1 > m)
+					{
+						cout << "잘못된 입력입니다.";
+						Sleep(1000);
+						return true;
+					}
+				}
+				if (t->tm_year + 1900 == y && t->tm_mon + 1 == m)
+				{
+					if (t->tm_mday >= d)
+					{
+						cout << "잘못된 입력입니다.";
+						Sleep(1000);
+						return true;
+					}
 				}
 
 				if (i == 1)
@@ -1382,4 +1507,34 @@ void refrigerator::deleteData(vector<Food>& food, size_t index) //index는 cursor
 {
 	food.erase(food.begin() + index);
 	writeInFile(food);
+}
+
+int refrigerator::checkDate(int year, int month, int day) {
+
+	if ((month % 2 == 1))  
+	{
+		if (month <= 7)
+			if (day <= 0 || day > 31) return false;
+			else    
+				if (day <= 0 || day > 30) return false;
+	}
+	else 
+	{
+		if (month <= 6) {
+			if (month == 2)
+			{
+				if (((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0)) // leap year  
+				{
+					if (day <= 0 || day > 30) return false;
+				}
+				else if (day <= 0 || day > 28) return false;
+
+			}
+			if (day <= 0 || day > 30) return false;
+		}
+		else {  
+
+			if (day <= 0 || day > 31) return false;
+		}
+	}
 }
