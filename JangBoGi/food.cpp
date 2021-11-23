@@ -118,7 +118,7 @@ void Food::showLeftDate() {
 	if(day>=0)
 		cout  << day+1 << "일 남았습니다." << endl;
 	else
-		cout << -1*(day + 1) << "일 지났습니다." << endl;
+		cout << (-1*day)  << "일 지났습니다." << endl;
 }
 
 
