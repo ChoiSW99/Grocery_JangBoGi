@@ -1513,6 +1513,9 @@ void refrigerator::show_ingredient(vector<Food> meat, vector<Food> fish, vector<
 
 void refrigerator::deleteData(vector<Food>& food, size_t index) //index´Â cursorÀÓ.
 {
+	//cout << "index : " << index << " food.size():" << food.size() << endl;
+	if (index >= food.size())
+		return;
 	food.erase(food.begin() + index);
 	writeInFile(food);
 }

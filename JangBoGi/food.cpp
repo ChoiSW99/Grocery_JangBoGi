@@ -106,6 +106,7 @@ void Food::showLeftDate() {
 	time_t shelfdate, today;
 	double diff; //유통기한과 현재시각 비교
 	int day; //비교 후 남은 일수 넣음
+	int hour; //남은 시간
 	struct tm user_stime; //현재시각 넣을 곳
 	user_stime.tm_year = f_year - 1900;
 	user_stime.tm_mon = f_month - 1;
@@ -115,8 +116,12 @@ void Food::showLeftDate() {
 	time(&today); //현재시각
 	diff = difftime(shelfdate, today);
 	day = (int)diff / (60 * 60 * 24); //남은 날
-	if(day>=0)
+	hour = (int)diff / (60 * 60); //남은 시간
+	//cout << "day : " << day << "hour : "<< hour << endl;
+	if(day>=0 && hour > 0)
 		cout  << day+1 << "일 남았습니다." << endl;
+	else if(day == 0 && hour < 0)
+		cout << "유통기한이 오늘까지입니다." << endl;
 	else
 		cout << (-1*day)  << "일 지났습니다." << endl;
 }
