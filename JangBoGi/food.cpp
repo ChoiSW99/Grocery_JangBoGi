@@ -17,9 +17,9 @@ string Food::getRecipe() const {
 string Food::getRecipe1() const {
 	string FullRecipe;
 	for (int i = 0; i < 3; i++) {
-			FullRecipe += recipe[i];
-			if (i < 2)
-				FullRecipe += " ";
+		FullRecipe += recipe[i];
+		if (i < 2)
+			FullRecipe += " ";
 	}
 	return FullRecipe;
 }
@@ -118,12 +118,12 @@ void Food::showLeftDate() {
 	day = (int)diff / (60 * 60 * 24); //남은 날
 	hour = (int)diff / (60 * 60); //남은 시간
 	//cout << "day : " << day << "hour : "<< hour << endl;
-	if(day>=0 && hour > 0)
-		cout  << day+1 << "일 남았습니다." << endl;
-	else if(day == 0 && hour < 0)
+	if (day >= 0 && hour > 0)
+		cout << day + 1 << "일 남았습니다." << endl;
+	else if (day == 0 && hour < 0)
 		cout << "유통기한이 오늘까지입니다." << endl;
 	else
-		cout << (-1*day)  << "일 지났습니다." << endl;
+		cout << (-1 * day) << "일 지났습니다." << endl;
 }
 
 
@@ -218,7 +218,7 @@ void writeInFile(vector<Food>& food) { // txt파일들에 식재료들 write
 		FILE* writeFile = fopen("refrigeration.txt", "w");
 		int i = 0;
 		int j = 1;
-		
+
 		while (i < food.size()) {
 			if (i == 0) {
 				fprintf(writeFile, food[i].getName().c_str());
@@ -234,7 +234,7 @@ void writeInFile(vector<Food>& food) { // txt파일들에 식재료들 write
 				fprintf(writeFile, " ");// 재료 1 2 3 2000 2 
 				fprintf(writeFile, to_string(food[i].getFDay()).c_str()); // 재료 1 2 3 2000 2 2 2
 			}
-			
+
 
 			if (j < food.size()) {
 				fprintf(writeFile, "\n");
@@ -263,7 +263,7 @@ void writeInFile(vector<Food>& food) { // txt파일들에 식재료들 write
 				fprintf(writeFile, " ");// 재료 1 2 3 2000 2 
 				fprintf(writeFile, to_string(food[i].getFDay()).c_str()); // 재료 1 2 3 2000 2 2 2
 			}
-			
+
 
 			if (j < food.size()) {
 				fprintf(writeFile, "\n");
@@ -292,7 +292,7 @@ void writeInFile(vector<Food>& food) { // txt파일들에 식재료들 write
 				fprintf(writeFile, " ");// 재료 1 2 3 2000 2 
 				fprintf(writeFile, to_string(food[i].getFDay()).c_str()); // 재료 1 2 3 2000 2 2 2
 			}
-			
+
 
 			if (j < food.size()) {
 				fprintf(writeFile, "\n");
@@ -312,7 +312,7 @@ void init(vector<Food>& food, string s) { //s에 맞는 식재료 목록으로 초기화함 ex
 		FILE* readFile = NULL;
 		fopen_s(&readFile, "meat.txt", "r"); //readFile = fopen("meat.txt", "r"); 
 		if (readFile != NULL) {
-			char buf[1024]; 
+			char buf[1024];
 			while (!feof(readFile)) {
 				fgets(buf, sizeof(buf), readFile);
 
@@ -335,7 +335,7 @@ void init(vector<Food>& food, string s) { //s에 맞는 식재료 목록으로 초기화함 ex
 
 				Food new_food(name, recipe1, recipe2, recipe3);
 				food.push_back(new_food);
-				
+
 			}
 		}
 		fcloseall();
@@ -363,7 +363,7 @@ void init(vector<Food>& food, string s) { //s에 맞는 식재료 목록으로 초기화함 ex
 				strcpy(recipe3, ptr);
 				Food new_food(name, recipe1, recipe2, recipe3);
 				food.push_back(new_food);
-				
+
 			}
 		}
 		fcloseall();
@@ -383,7 +383,7 @@ void init(vector<Food>& food, string s) { //s에 맞는 식재료 목록으로 초기화함 ex
 				strcpy(name, ptr);
 				Food new_food(name);
 				food.push_back(new_food);
-				
+
 			}
 		}
 		fcloseall();
@@ -402,7 +402,7 @@ void init(vector<Food>& food, string s) { //s에 맞는 식재료 목록으로 초기화함 ex
 				strcpy(name, ptr);
 				Food new_food(name);
 				food.push_back(new_food);
-				
+
 			}
 		}
 		fcloseall();
@@ -421,7 +421,7 @@ void init(vector<Food>& food, string s) { //s에 맞는 식재료 목록으로 초기화함 ex
 				strcpy(name, ptr);
 				Food new_food(name);
 				food.push_back(new_food);
-				
+
 			}
 		}
 		fcloseall();
@@ -440,7 +440,7 @@ void init(vector<Food>& food, string s) { //s에 맞는 식재료 목록으로 초기화함 ex
 				strcpy(name, ptr);
 				Food new_food(name);
 				food.push_back(new_food);
-				
+
 			}
 		}
 		fcloseall();
@@ -477,7 +477,7 @@ void init(vector<Food>& food, string s) { //s에 맞는 식재료 목록으로 초기화함 ex
 				char* ptr = strtok(buf, " \n"); // 재료이름 x x x 2202 22 22
 				strcpy(name, ptr);
 
-				ptr = strtok(NULL, " "); 
+				ptr = strtok(NULL, " ");
 				strcpy(recipe1, ptr);
 
 				ptr = strtok(NULL, " ");
@@ -485,17 +485,17 @@ void init(vector<Food>& food, string s) { //s에 맞는 식재료 목록으로 초기화함 ex
 
 				ptr = strtok(NULL, " ");
 				strcpy(recipe3, ptr);
-				
+
 				ptr = strtok(NULL, " ");
 				strcpy(y, ptr);
-				
+
 				ptr = strtok(NULL, " ");
 				strcpy(m, ptr);
 
 				ptr = strtok(NULL, "\n");
 				strcpy(d, ptr);
 
-				Food new_food(name, recipe1, recipe2, recipe3, atoi(y), atoi(m) ,atoi(d));
+				Food new_food(name, recipe1, recipe2, recipe3, atoi(y), atoi(m), atoi(d));
 				new_food.setState1("냉장");
 				food.push_back(new_food);
 			}
@@ -561,7 +561,7 @@ void init(vector<Food>& food, string s) { //s에 맞는 식재료 목록으로 초기화함 ex
 
 	if (s == "상온") { // room
 		FILE* readFile = NULL;
-		fopen_s(&readFile, "room.txt", "r");		
+		fopen_s(&readFile, "room.txt", "r");
 		if (readFile != NULL) {
 
 			char buf[1024];
@@ -612,9 +612,9 @@ void init(vector<Food>& food, string s) { //s에 맞는 식재료 목록으로 초기화함 ex
 				food.push_back(new_food);
 
 			}
-			
+
 		}
-		
+
 		fcloseall();
 	}
 }
